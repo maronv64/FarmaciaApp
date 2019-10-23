@@ -1,0 +1,62 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>usuario</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Mi Perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col>
+        <!-- <h2>{{mi_usuario.name}}</h2> -->
+        <ion-item>
+          <ion-label position="stacked" color="primary">nombre:</ion-label>
+          <ion-input [(ngModel)]="usuario.name" placeholder="nombre" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" color="primary">email:</ion-label>
+          <ion-input [(ngModel)]="usuario.email" placeholder="email" type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" color="primary">cédula:</ion-label>
+          <ion-input [(ngModel)]="usuario.cedula" placeholder="cédula" type="tel"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" color="primary">celular:</ion-label>
+          <ion-input [(ngModel)]="usuario.celular" placeholder="celular" type="tel"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked" color="primary">password:</ion-label>
+          <ion-input [(ngModel)]="usuario.password2" placeholder="clave" type="password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-tabs>
+      <ion-tab-bar>
+          <ion-button expand="block" fill="outline" (click)="editar()">Editar</ion-button>
+      </ion-tab-bar>
+    </ion-tabs>
+    <!-- <ion-row>
+      <ion-col>
+        <ion-button expand="block" fill="outline">Registrar</ion-button>
+        <ion-button expand="full">Registrar</ion-button>
+      </ion-col>
+    </ion-row> -->
+
+  </ion-grid>
+
+</ion-content>

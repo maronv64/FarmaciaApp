@@ -1,0 +1,50 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>productos</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+
+        <!-- <ion-card *ngFor="let item of items"> -->
+         <!-- <ion-item >--> <!--href="#"-->
+            <!-- <ion-icon name="beaker" slot="start"></ion-icon>
+            <ion-label> {{item.descripcion}}</ion-label>
+            <ion-label> $ {{item.precio}}</ion-label>
+          </ion-item>
+        </ion-card> -->
+        <ion-toolbar>
+          <ion-searchbar placeholder="Filter Schedules"></ion-searchbar>
+        </ion-toolbar>
+
+        <ion-card *ngFor="let item of items">
+          <ion-item>
+            <ion-icon name="beaker" slot="start"></ion-icon>
+            <ion-label></ion-label>
+            <ion-button fill="outline" slot="end">Agregar al carrito</ion-button>
+          </ion-item>
+
+          <ion-card-content>
+              {{item.descripcion}} <br> ${{item.precio}}
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
