@@ -17,6 +17,7 @@ export class ProductoService {
   private apiUrl = "http://127.0.0.1:8000/api/v0/";
   private _headers = new HttpHeaders({'Content-Type':'application/json'});
   private _params = new HttpParams();
+  // private httpOptions={headers:this._headers,params:};
 
   show(_nome_token_user:string,_request:Producto){
 
@@ -30,7 +31,8 @@ export class ProductoService {
 
   }
 
-  filtro(_nome_token_user,_request:Producto){
+
+  filtro(_nome_token_user:string,_request:Producto){
 
     let _params = new HttpParams({
       fromObject : {

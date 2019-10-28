@@ -13,7 +13,7 @@ export class CarritoService {
 
   private apiUrl = "http://127.0.0.1:8000/api/v0/";
   private _headers = new HttpHeaders({'Content-Type':'application/json'});
-  private httpOptions={headers:this._headers};
+  // private httpOptions={headers:this._headers};
 
   constructor(private http:HttpClient) { }
   
@@ -30,7 +30,21 @@ export class CarritoService {
 
   store(_nome_token_user:string,_request:DetalleVenta){
     // const httpOptions={headers:this._headers};
-    return this.http.post<DetalleVentaResult>(`${this.apiUrl}detalle_ventas_store/${_nome_token_user}/`,_request,this.httpOptions);
+    // return this.http.post<DetalleVentaResult>(`${this.apiUrl}detalle_ventas_store/${_nome_token_user}/`,_request,this.httpOptions);
+    return this.http.post<DetalleVentaResult>(`${this.apiUrl}detalle_ventas_store/${_nome_token_user}/`,_request,{headers:this._headers});
+
+  }
+
+  delete(_nome_token_user:string,_request:DetalleVenta){
+    // return this.http.delete<ProductoResult>()
+    let _params = new HttpParams({
+      fromObject : {
+        'nome_token' : _request.nome_token,
+      }
+    });
+    return this.http.delete<DetalleVentaResult>(`${this.apiUrl}detalle_ventas_delete/${_nome_token_user}/`,{headers:this._headers,params:_params});
+    // let httpOptions={headers:this._headers,params:this._params};
+
   }
   
 }

@@ -23,7 +23,7 @@ export class ProductoModalPage implements OnInit {
   ngOnInit() {
   }
 
-  salir(){
+  async salir(){
     this.modalController.dismiss();
   }
 
