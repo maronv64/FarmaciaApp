@@ -4,10 +4,7 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content>
-  <!-- <ion-card class="welcome-card">
-    <ion-img src="/assets/img/conejo.svg"></ion-img>
-  </ion-card> -->
+<!-- <ion-content>
 
   <ion-grid>
     <ion-row>
@@ -25,7 +22,6 @@
 
         <ion-item>  <ion-input [(ngModel)]="usuario.email" type="email" placeholder="correo"></ion-input>  </ion-item>
         <ion-item>  <ion-input [(ngModel)]="usuario.password" type="password" placeholder="clave"></ion-input>  </ion-item>
-        <!-- <ion-button expand="full">ingresar</ion-button> -->
 
       </ion-col>
     </ion-row>
@@ -38,4 +34,52 @@
 
   </ion-grid>
 
+</ion-content> -->
+
+<ion-content>
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col>
+
+        <ion-img src="/assets/img/logocruzazul.jpg"></ion-img>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+    
+  <form #frmLogin="ngForm" (ngSubmit)="login()">
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+
+            <ion-list>
+              <!-- <img src=""  alt=""> -->
+              <ion-list-header>
+                <ion-img src="/assets/img/logocruzazul.jpg"></ion-img>
+                <!-- <ion-label>frmLogin Valido {{frmLogin.valid}}</ion-label> -->
+              </ion-list-header>
+          
+              <ion-item>
+                <ion-label position="floating">email:</ion-label>
+                <ion-input  required name="email" type="email" [(ngModel)]="usuario.email" 
+                            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">password:</ion-label>
+                <ion-input required name="password" type="password" [(ngModel)]="usuario.password"></ion-input>
+              </ion-item>
+          
+            </ion-list>
+          
+            <ion-button type="submit" expand="full" [disabled]="frmLogin.invalid">Enviar</ion-button>
+                      
+
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </form>
 </ion-content>

@@ -31,11 +31,15 @@ export class AppComponent {
       icon: 'pricetags'
     },
     {
+      title: 'Carrito',
+      url: '/carrito',
+      icon: 'cart'
+    },
+    {
       title: 'Mis Compras',
       url: '/miscompras',
       icon: 'cart'
     }
-
     // {
     //   title: 'List',
     //   url: '/list',

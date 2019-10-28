@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ProductosPage } from './productos.page';
+import { ProductoModalPage } from '../producto-modal/producto-modal.page';
+import { ProductoModalPageModule } from '../producto-modal/producto-modal.module';
 
 const routes: Routes = [
   {
@@ -15,11 +17,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents:[ProductoModalPage],//add
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ProductoModalPageModule //add
   ],
   declarations: [ProductosPage]
 })

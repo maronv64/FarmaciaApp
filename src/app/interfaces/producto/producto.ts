@@ -15,6 +15,7 @@ export interface Producto {
     concentracion?:string;
     estado_item_bodega?:string;
     estado_del?:string;
+    cantidad?:string;
     nome_token?:string;
     created_at?:string;
     updated_at?:string;
