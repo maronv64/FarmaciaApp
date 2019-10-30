@@ -1,5 +1,5 @@
 export interface Result {
-    code:string,
-    items:string,
-    message:string,
+    code?:string,
+    items?:string,
+    message?:string,
 }

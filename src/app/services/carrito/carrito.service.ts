@@ -5,6 +5,8 @@ import { DetalleVenta } from "src/app/interfaces/detalle-venta/detalle-venta";
 import { DetalleVentaResult } from "src/app/interfaces/detalle-venta/detalle-venta-result";
 import { DetalleVentasResult } from "src/app/interfaces/detalle-venta/detalle-ventas-result";
 
+import { Venta } from 'src/app/interfaces/venta/venta';
+
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +46,13 @@ export class CarritoService {
     });
     return this.http.delete<DetalleVentaResult>(`${this.apiUrl}detalle_ventas_delete/${_nome_token_user}/`,{headers:this._headers,params:_params});
     // let httpOptions={headers:this._headers,params:this._params};
+
+  }
+
+  generar_venta(_nome_token_user:string,_request:Venta){
+    
+  }
+  generar_pedido(){
 
   }
   
