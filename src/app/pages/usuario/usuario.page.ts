@@ -11,14 +11,14 @@ export class UsuarioPage implements OnInit {
 
   usuario:Usuario={};
   nome_token:string;
-  constructor(private dbEntity:UsuarioService) { }
+  constructor(private usuarioService:UsuarioService) { }
 
   ngOnInit() {
     // this.usuario = new Usuario();
     this.nome_token = localStorage.getItem('miCuenta.nome_token');
     //console.log(this.nome_token);
     // var contador:number = 0;
-    this.dbEntity.getUsuario(this.nome_token,this.nome_token).subscribe(item=>{
+    this.usuarioService.show(this.nome_token,this.nome_token).subscribe(item=>{
       console.log("item: ");
       console.log(item);
       this.usuario.name = item.items.name;
