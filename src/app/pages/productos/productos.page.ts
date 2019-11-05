@@ -16,7 +16,7 @@ import { ProductoModalPage } from '../producto-modal/producto-modal.page';
 })
 export class ProductosPage implements OnInit {
 
-  constructor(private dbEntity: ProductoService, 
+  constructor(private productoService: ProductoService, 
               private router:Router, 
               private modalController:ModalController) {
   }
@@ -34,7 +34,7 @@ export class ProductosPage implements OnInit {
   async filtroProductos(_nome_token:string){
     this._request.nome_token = _nome_token;
     this.nome_token_user = localStorage.getItem('miCuenta.nome_token');
-    this.dbEntity.filtro(this.nome_token_user,this._request).subscribe(
+    this.productoService.filtro(this.nome_token_user,this._request).subscribe(
       item=>{
         this.items = item.items;
         console.log(this.items);

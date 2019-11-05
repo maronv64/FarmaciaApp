@@ -5,6 +5,10 @@ import { DetalleVenta } from "src/app/interfaces/detalle-venta/detalle-venta";
 import { DetalleVentaResult } from "src/app/interfaces/detalle-venta/detalle-venta-result";
 import { DetalleVentasResult } from "src/app/interfaces/detalle-venta/detalle-ventas-result";
 
+import { Venta } from 'src/app/interfaces/venta/venta';
+import { VentaResult } from 'src/app/interfaces/venta/venta-result';
+import { VentasResult } from 'src/app/interfaces/venta/ventas-result';
+
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +50,16 @@ export class CarritoService {
     // let httpOptions={headers:this._headers,params:this._params};
 
   }
-  
+
+  generar_venta(_nome_token_user:string,_request:Venta){
+    
+    return this.http.post<VentaResult>(`${this.apiUrl}ventas_store/${_nome_token_user}/`,_request,{headers:this._headers});
+
+  }
+  generar_pedido(_nome_token_user:string,_request:Venta){
+    // return this.http.put()
+    return this.http.put<VentaResult>(`${this.apiUrl}ventas_generar_pedido/${_nome_token_user}/`,_request,{headers:this._headers});
+
+  }
+   
 }

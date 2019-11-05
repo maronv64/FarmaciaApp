@@ -18,7 +18,7 @@ export class ProductoModalPage implements OnInit {
 
   constructor(private modalController:ModalController,
               private alertController:AlertController,
-              private dbEntity:CarritoService) { }
+              private loginService:CarritoService) { }
 
   ngOnInit() {
   }
@@ -29,7 +29,8 @@ export class ProductoModalPage implements OnInit {
 
   async add(){
     const alert = await this.alertController.create({
-      header: 'Prompt!',
+      header: 'Elija la cantidad!',
+      // message:'hola',
       inputs: [
         {
           name: '_cantidad',
@@ -41,7 +42,7 @@ export class ProductoModalPage implements OnInit {
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Cancelar',
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
@@ -56,7 +57,7 @@ export class ProductoModalPage implements OnInit {
             this.newItemCarrito.idproducto = this.item.id;
             // this.itemCarrito.precio_u   = this.item.precio;
             const nome_token_user =localStorage.getItem('miCuenta.nome_token');
-            this.dbEntity.store(nome_token_user,this.newItemCarrito)
+            this.loginService.store(nome_token_user,this.newItemCarrito)
                 .subscribe(
                   data=>{
                     console.log(data);

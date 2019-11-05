@@ -14,7 +14,7 @@ export class UsuarioService {
   private _headers = new HttpHeaders({'Content-Type':'application/json'});
   private _params = new HttpParams();
 
-  getUsuario(_nome_token_user:string,_nome_token:string){
+  show(_nome_token_user:string,_nome_token:string){
     
     let _params = new HttpParams({
       fromObject : {

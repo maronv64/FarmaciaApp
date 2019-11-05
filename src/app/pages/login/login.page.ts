@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor( private dbEntity: LoginService, private router:Router) { }
+  constructor( private loginService: LoginService, private router:Router) { }
   usuario:Usuario={};
   // existe:boolean;
 
@@ -18,13 +18,16 @@ export class LoginPage implements OnInit {
 
   login(){
 
-    // this.dbEntity.setlogin(this.usuario.email,this.usuario.password).subscribe(item=>{
+    // this.loginService.setlogin(this.usuario.email,this.usuario.password).subscribe(item=>{
     //   localStorage.setItem('miCuenta.nome_token',item.nome_token);
     //   this.router.navigateByUrl('/home');
     // });
 
-    this.dbEntity.setlogin(this.usuario.email,this.usuario.password).subscribe(item=>{
+    this.loginService.setlogin(this.usuario.email,this.usuario.password).subscribe(item=>{
+      //guardando en una variable global el token del usuario
       localStorage.setItem('miCuenta.nome_token',item.items.nome_token);
+      localStorage.setItem('miCuenta.id',item.items.id);
+      // localStorage.setItem('miCuenta.id')
       // this.router.navigateByUrl('/home');
       console.log(item);
       if (item.items.nome_token!=null) {
