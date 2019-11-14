@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MiscomprasPage } from './miscompras.page';
+import { MiscomprasItemModalPage } from '../miscompras-item-modal/miscompras-item-modal.page';
+import { MiscomprasItemModalPageModule } from '../miscompras-item-modal/miscompras-item-modal.module';
 
 const routes: Routes = [
   {
@@ -15,11 +17,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents:[MiscomprasItemModalPage], //add
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+   MiscomprasItemModalPageModule //add
   ],
   declarations: [MiscomprasPage]
 })

@@ -1,5 +1,5 @@
 <ion-header no-border>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title text-capitalize>Informacion</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,26 +12,32 @@
         <ion-item>
           <ion-label >Nombre:</ion-label> 
           <ion-label slot="end">{{item.producto.descripcion}}</ion-label>
+          <!-- {{item.producto.descripcion}} -->
         </ion-item>
         <ion-item>
           <ion-label >Precio:</ion-label> 
           <ion-label slot="end">{{item.precio_u}}</ion-label>
+          <!-- {{item.precio_u}} -->
         </ion-item>
         <ion-item>
           <ion-label >Presentacion:</ion-label> 
-          <ion-label slot="end">{{item.producto.presentacion}}</ion-label>
+          <ion-label slot="end">{{item.precio_u}}</ion-label>
+          <!-- {{item.producto.presentacion}} -->
         </ion-item>
         <ion-item>
           <ion-label >Consentracion:</ion-label> 
-          <ion-label slot="end">{{item.producto.consentracion}}</ion-label>
+          <ion-label slot="end">{{item.producto.consentracion || '...'}}</ion-label>
+          <!-- {{item.producto.consentracion || '...'}} -->
         </ion-item>
         <ion-item>
           <ion-label >Observaciones:</ion-label> 
-          <ion-label slot="end">{{item.producto.observacion || '...'}}</ion-label>
+          <ion-label slot="end">{{item.producto.observacion}}</ion-label>
+          <!-- {{item.producto.observacion}} -->
         </ion-item>
         <ion-item>
           <ion-label >Pedidos:</ion-label> 
           <ion-label slot="end">{{item.cantidad}}</ion-label>
+          <!-- {{item.cantidad}} -->
         </ion-item>
       </ion-col>
     </ion-row>
@@ -40,7 +46,7 @@
 
 </ion-content>
 
-<ion-footer>
+<ion-footer  no-border>
   <ion-toolbar>
     <ion-row>
       <ion-col size="12">

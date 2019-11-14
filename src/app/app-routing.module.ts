@@ -23,6 +23,8 @@ const routes: Routes = [
   { path: 'miscompras', loadChildren: './pages/miscompras/miscompras.module#MiscomprasPageModule' },
   { path: 'misentregas', loadChildren: './pages/misentregas/misentregas.module#MisentregasPageModule' },
   { path: 'carrito', loadChildren: './pages/carrito/carrito.module#CarritoPageModule' },
+  // { path: 'miscompras-item-modal', loadChildren: './pages/miscompras-item-modal/miscompras-item-modal.module#MiscomprasItemModalPageModule' },
+
   // { path: 'carrito-item-modal', loadChildren: './pages/carrito-item-modal/carrito-item-modal.module#CarritoItemModalPageModule' },
 
   // { path: 'producto-modal', loadChildren: './pages/producto-modal/producto-modal.module#ProductoModalPageModule' }
