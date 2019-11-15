@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../interfaces/usuario/usuario';
-import { LoginService } from '../../services/login/login.service';
+// import { LoginService } from '../../services/login/login.service';
 import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor( private loginService: LoginService, private router:Router) { }
+  constructor( private usuarioService: UsuarioService, private router:Router) { }
   usuario:Usuario={};
   // existe:boolean;
 
@@ -23,7 +24,7 @@ export class LoginPage implements OnInit {
     //   this.router.navigateByUrl('/home');
     // });
 
-    this.loginService.setlogin(this.usuario.email,this.usuario.password).subscribe(item=>{
+    this.usuarioService.login(this.usuario.email,this.usuario.password).subscribe(item=>{
       //guardando en una variable global el token del usuario
       localStorage.setItem('miCuenta.nome_token',item.items.nome_token);
       localStorage.setItem('miCuenta.id',item.items.id);

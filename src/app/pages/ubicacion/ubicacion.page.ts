@@ -11,6 +11,8 @@ declare var google;
 })
 export class UbicacionPage implements OnInit {
 
+  map=null;
+
   constructor(private geolocation:Geolocation,
               private loadingController:LoadingController) { }
 
@@ -41,31 +43,44 @@ export class UbicacionPage implements OnInit {
 
     console.log(myLatLog);
     const mapEle :HTMLElement = document.getElementById('map'); // en esta linea construye el mapa en el div
-    const map = new google.maps.Map(mapEle,{
+    this.map = new google.maps.Map(mapEle,{
       center: myLatLog,
       zoom:12
     });
 
-    google.maps.event.addListenerOnce(map,'idle',()=>{
+    // const map = new google.maps.Map(mapEle,{
+    //   center: myLatLog,
+    //   zoom:12
+    // });
+
+    google.maps.event.addListenerOnce(this.map,'idle',()=>{
       console.log('added');
       loading.dismiss();
-      this.addMarker(myLatLog,map);
+      this.addMarker(myLatLog.lat,myLatLog.lng);
+      // const marker = new google.maps.Marker({
+      //   position: {
+      //     lat: myLatLog.lat,
+      //     lng: myLatLog.lng
+      //   },
+      //   zoom:8,
+      //   map:this.map,
+      //   title:'Mi Ubicacion'
+      // });
       
     });
 
   }
 
-  private addMarker(myLatLog,map){
+  private addMarker(lat:number,lng:number){
     const marker = new google.maps.Marker({
       position: {
-        lat: myLatLog.lat,
-        lng: myLatLog.lng
+        lat: lat,
+        lng: lng
       },
       zoom:8,
-      map:map,
-      title:' Mi Ubicacion'
+      map:this.map,
+      title:'Mi Ubicacion'
     });
   }
-
 
 }

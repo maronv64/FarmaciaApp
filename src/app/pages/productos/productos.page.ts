@@ -62,7 +62,7 @@ export class ProductosPage implements OnInit {
       //   concentracion:item.concentracion
       // }
     });
-    this.listaProductos.closeSlidingItems();
+    //this.listaProductos.closeSlidingItems();
     await modal.present();
     const {data} = await modal.onDidDismiss();
     this.router.navigateByUrl('/productos');
