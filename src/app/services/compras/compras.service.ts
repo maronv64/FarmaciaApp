@@ -24,6 +24,6 @@ export class ComprasService {
       }
     });
 
-    return this.http.get<VentasResult>(`${this.apiUrl}ventas_mi_historial/${_nome_token_user}/`,{headers:this._headers,params:_params});
+    return this.http.get<VentasResult>(`${this.apiUrl}ventas_mi_historial_pediodos/${_nome_token_user}/`,{headers:this._headers,params:_params});
   }
 }

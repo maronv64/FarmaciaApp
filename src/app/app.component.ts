@@ -39,6 +39,11 @@ export class AppComponent {
       title: 'Mis Compras',
       url: '/miscompras',
       icon: 'cart'
+    },
+    {
+      title: 'Mis Entregas',
+      url: '/misentregas',
+      icon: 'list'
     }
     // {
     //   title: 'List',

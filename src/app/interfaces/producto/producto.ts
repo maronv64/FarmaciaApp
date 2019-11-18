@@ -17,6 +17,11 @@ export interface Producto {
     estado_del?:string;
     cantidad?:string;
     nome_token?:string;
+    
+    file_name?:string;
+    file_extension?:string;
+    file_ruta?:string;
+
     created_at?:string;
     updated_at?:string;
 }
