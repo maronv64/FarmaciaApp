@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Usuario } from '../../interfaces/usuario/usuario';
 // import { LoginService } from '../../services/login/login.service';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { Form } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,7 +14,8 @@ export class LoginPage implements OnInit {
   constructor( private usuarioService: UsuarioService, private router:Router) { }
   usuario:Usuario={};
   // existe:boolean;
-
+  @ViewChild('frmLogin',{static:false}) frmLogin:Form;
+  
   ngOnInit() {
   }
 

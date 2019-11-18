@@ -22,7 +22,9 @@ const routes: Routes = [
   { path: 'productos', loadChildren: './pages/productos/productos.module#ProductosPageModule' },
   { path: 'miscompras', loadChildren: './pages/miscompras/miscompras.module#MiscomprasPageModule' },
   { path: 'misentregas', loadChildren: './pages/misentregas/misentregas.module#MisentregasPageModule' },
-  { path: 'carrito', loadChildren: './pages/carrito/carrito.module#CarritoPageModule' },  { path: 'ubicacion', loadChildren: './pages/ubicacion/ubicacion.module#UbicacionPageModule' },
+  { path: 'carrito', loadChildren: './pages/carrito/carrito.module#CarritoPageModule' },
+  { path: 'ubicacion', loadChildren: './pages/ubicacion/ubicacion.module#UbicacionPageModule' },
+  // { path: 'misentregas-item-modal', loadChildren: './pages/misentregas-item-modal/misentregas-item-modal.module#MisentregasItemModalPageModule' },
 
   // { path: 'miscompras-item-modal', loadChildren: './pages/miscompras-item-modal/miscompras-item-modal.module#MiscomprasItemModalPageModule' },
 

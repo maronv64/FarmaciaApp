@@ -6,55 +6,60 @@
 </ion-header>
 
 <ion-content>
+  <form #frmRegister="ngForm" (ngSubmit)="login()">
 
-  <ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
 
-    <ion-row>
-      <ion-col size="4"></ion-col>
-      <ion-col size="4">
-        <ion-avatar>
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-      </ion-col>
-      <ion-col size="4"></ion-col>
-    </ion-row>
+            <ion-list>
+              <!-- <img src=""  alt=""> -->
+              <ion-list-header>
+                <ion-img src="/assets/img/logocruzazul.jpg"></ion-img>
+                <!-- <ion-label>frmLogin Valido {{frmLogin.valid}}</ion-label> -->
+              </ion-list-header>
 
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-input placeholder="nombre" type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input placeholder="email" type="email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input placeholder="cédula" type="tel"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input placeholder="celular" type="tel"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input placeholder="clave" type="password"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
+              <ion-item>
+                <ion-label position="floating" color="primary">nombre:</ion-label>
+                <ion-input  required name="name" type="text" [(ngModel)]="usuario.name"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating" color="primary">email:</ion-label>
+                <ion-input  required name="email" type="email" [(ngModel)]="usuario.email" 
+                            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating" color="primary">cédula:</ion-label>
+                <ion-input  required name="cedula" type="text" [(ngModel)]="usuario.cedula"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating" color="primary">celular:</ion-label>
+                <ion-input  required name="celular" type="text" [(ngModel)]="usuario.celular"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating" color="primary">password:</ion-label>
+                <ion-input required name="password" type="password" [(ngModel)]="usuario.password"></ion-input>
+              </ion-item>
+          
+            </ion-list>
+            
+            <a href="/login">login</a>
+            <!-- <ion-button type="submit" expand="full" [disabled]="frmLogin.invalid">Enviar</ion-button> -->
+                      
 
-    <!-- <ion-tabs>
-      <ion-tab-bar>
-          <ion-button expand="block" fill="outline">Registrar</ion-button>
-      </ion-tab-bar>
-    </ion-tabs> -->
+        </ion-col>
+      </ion-row>
 
+    </ion-grid>
 
-  </ion-grid>
-
+  </form>
 </ion-content>
 
 <ion-footer no-border>
   <ion-toolbar>
     <ion-row>
       <ion-col size="12">
-        <ion-button expand="full" >Registrar</ion-button>
+        <ion-button expand="full" (click)="register()" [disabled]="frmRegister.invalid">Registrar</ion-button>
       </ion-col>
     </ion-row>
   </ion-toolbar>
