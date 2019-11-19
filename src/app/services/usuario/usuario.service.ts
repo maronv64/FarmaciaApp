@@ -45,7 +45,7 @@ export class UsuarioService {
                                                   // responseType: 'json'
   }
 
-  register(_nome_token_user:string,_request:Usuario){
+  register(_request:Usuario){
     return this.http.post<UsuarioResult>(`${this.apiUrl}register`,_request,{headers:this._headers});
   }
 

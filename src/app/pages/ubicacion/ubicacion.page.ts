@@ -35,12 +35,12 @@ export class UbicacionPage implements OnInit {
       spinner:'bubbles'
     });
     loading.present();
-    const rta = await this.geolocation.getCurrentPosition();
-    const myLatLog = {
-      lat: rta.coords.latitude,
-      lng: rta.coords.longitude
-    };
-
+    // const rta = await this.geolocation.getCurrentPosition();
+    // const myLatLog = {
+    //   lat: rta.coords.latitude,
+    //   lng: rta.coords.longitude
+    // };
+    const myLatLog = await this.getLocation();
     console.log(myLatLog);
     const mapEle :HTMLElement = document.getElementById('map'); // en esta linea construye el mapa en el div
     this.map = new google.maps.Map(mapEle,{
@@ -82,5 +82,15 @@ export class UbicacionPage implements OnInit {
       title:'Mi Ubicacion'
     });
   }
+
+  private async getLocation(){
+    const rta = await this.geolocation.getCurrentPosition();
+    return  {
+      lat: rta.coords.latitude,
+      lng: rta.coords.longitude
+    };
+  }
+
+  
 
 }

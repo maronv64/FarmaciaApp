@@ -99,7 +99,8 @@ export class CarritoPage implements OnInit {
     //   'total'     : '0'
     // };
     let _venta:Venta = {};
-    _venta.idcliente =  localStorage.getItem('miCuenta.id');
+    // _venta.idcliente =  localStorage.getItem('miCuenta.id');
+    _venta.nome_token_cliente = localStorage.getItem("miCuenta.nome_token");
     _venta.subtotal = '0';
     _venta.total = '0';
 

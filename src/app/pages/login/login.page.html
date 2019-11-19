@@ -47,8 +47,8 @@
       </ion-col>
     </ion-row>
   </ion-grid> -->
-    
-  <form #frmLogin="ngForm" (ngSubmit)="login()">
+    <!-- (ngSubmit)="login()" -->
+  <form #frmLogin="ngForm" >
     
     <ion-grid>
       <ion-row>
@@ -86,6 +86,6 @@
 
 <ion-footer no-border>
   <ion-toolbar>
-    <ion-button type="submit" expand="full" [disabled]="frmLogin.invalid">Enviar</ion-button>
+    <ion-button (click)="login()" type="submit" expand="full" [disabled]="frmLogin.invalid">Enviar</ion-button>
   </ion-toolbar>
 </ion-footer>

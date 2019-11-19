@@ -18,4 +18,9 @@ export interface Venta {
     cliente?:Usuario;
     courier?:Usuario;
     detalle?:DetalleVenta[];
+
+    //locales
+    nome_token_cliente?:string;
+    nome_token_courier?:string;
+
 }

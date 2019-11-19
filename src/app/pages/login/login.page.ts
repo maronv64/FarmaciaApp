@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
     this.usuarioService.login(this.usuario.email,this.usuario.password).subscribe(item=>{
       //guardando en una variable global el token del usuario
       localStorage.setItem('miCuenta.nome_token',item.items.nome_token);
-      localStorage.setItem('miCuenta.id',item.items.id);
+      // localStorage.setItem('miCuenta.id',item.items.id);
       // localStorage.setItem('miCuenta.id')
       // this.router.navigateByUrl('/home');
       console.log(item);
