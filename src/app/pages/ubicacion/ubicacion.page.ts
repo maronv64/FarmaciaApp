@@ -45,7 +45,7 @@ export class UbicacionPage implements OnInit {
     //   lng: rta.coords.longitude
     // };
     const myLatLog = await this.getLocation();
-    console.log(myLatLog);
+    console.log("coordenadas de inicio",myLatLog);
     const mapEle :HTMLElement = document.getElementById('map'); // en esta linea construye el mapa en el div
     this.map = new google.maps.Map(mapEle,{
       center: myLatLog,
@@ -59,8 +59,7 @@ export class UbicacionPage implements OnInit {
     
 
     google.maps.event.addListenerOnce(this.map,'idle',(data)=>{
-      console.log('added');
-      console.log(data);
+  
       
       loading.dismiss();
       //this.hola(myLatLog.lat,myLatLog.lng,google);
@@ -80,7 +79,8 @@ export class UbicacionPage implements OnInit {
     });
 
     google.maps.event.addListener(this.map,'click',(data)=>{
-      console.log(data.latLng.lat());
+      // console.log("otra coordenada",data.latLng.lat());
+      console.log("otra coordenada",data.latLng);
       const x:number = data.latLng.lat();
       const y:number = data.latLng.lng();
       //this.addMarker(x,y,google);
@@ -141,7 +141,6 @@ export class UbicacionPage implements OnInit {
     
         
     this.markers.forEach((item,a) => {
-      // console.log(item);
       item.setMap(null);
     });
 
@@ -150,7 +149,7 @@ export class UbicacionPage implements OnInit {
 
     //Zoom a la zona del marker seleccionado
     google.maps.event.addListener(marker,'click',function() {
-      this.map.setZoom(14);
+      this.map.setZoom(16);
       this.map.setCenter(marker.getPosition());
     }); 
 
