@@ -11,7 +11,7 @@ declare var google;
 export class UbicacionPage implements OnInit {
 
   map=null;
-
+  filtro:string="Ecuador";
 
   constructor(private geolocation:Geolocation,
               private loadingController:LoadingController,
@@ -22,6 +22,7 @@ export class UbicacionPage implements OnInit {
     //this.hola();
   }
 
+  
   // async presentLoading() {
   //   const loading = await this.loadingController.create({
   //     message: 'Hellooo',
@@ -39,11 +40,9 @@ export class UbicacionPage implements OnInit {
     });
     loading.present();
     /////////////////////////////////////////////////////////////////////////////////////////
-    // const rta = await this.geolocation.getCurrentPosition();
-    // const myLatLog = {
-    //   lat: rta.coords.latitude,
-    //   lng: rta.coords.longitude
-    // };
+
+
+
     const myLatLog = await this.getLocation();
     console.log("coordenadas de inicio",myLatLog);
     const mapEle :HTMLElement = document.getElementById('map'); // en esta linea construye el mapa en el div
@@ -52,10 +51,12 @@ export class UbicacionPage implements OnInit {
       zoom:12
     });
 
+
     // const map = new google.maps.Map(mapEle,{
     //   center: myLatLog,
     //   zoom:12
     // });
+
     
 
     google.maps.event.addListenerOnce(this.map,'idle',(data)=>{
@@ -191,5 +192,6 @@ export class UbicacionPage implements OnInit {
 
   }
   
+  onSearchChange(event:any){}
 
 }

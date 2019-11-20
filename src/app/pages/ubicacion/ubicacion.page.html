@@ -2,6 +2,8 @@
   <ion-toolbar>
     <ion-title>ubicacion</ion-title>
   </ion-toolbar>
+  <ion-searchbar placeholder="Lugar" inputmode="email" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar>
+
 </ion-header>
 
 <ion-content >
