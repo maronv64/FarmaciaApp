@@ -44,6 +44,11 @@ export class AppComponent {
       title: 'Mis Entregas',
       url: '/misentregas',
       icon: 'list'
+    },
+    {
+      title: 'Ubicacion',
+      url: '/ubicacion',
+      icon: 'list'
     }
     // {
     //   title: 'List',
