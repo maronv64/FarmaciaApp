@@ -32,11 +32,14 @@ export class UbicacionPage implements OnInit {
   //   await loading.present();
   // }
 
+  async guardarUBi(){}
+ 
   async loadMap(){
     //////////////////////////////////////////////////////////////////////////////////////////
     const loading = await this.loadingController.create({
       message:'espere por favor...',
-      spinner:'bubbles'
+      spinner:'bubbles',
+      duration:5000
     });
     loading.present();
     /////////////////////////////////////////////////////////////////////////////////////////
@@ -47,11 +50,11 @@ export class UbicacionPage implements OnInit {
     console.log("coordenadas de inicio",myLatLog);
     const mapEle :HTMLElement = document.getElementById('map'); // en esta linea construye el mapa en el div
     this.map = new google.maps.Map(mapEle,{
-      center: myLatLog,
-      zoom:12
+      center: myLatLog, 
+      zoom:12,
     });
-
-
+    
+    
     // const map = new google.maps.Map(mapEle,{
     //   center: myLatLog,
     //   zoom:12
@@ -87,6 +90,23 @@ export class UbicacionPage implements OnInit {
       //this.addMarker(x,y,google);
       this.hola(x,y,google);
     });
+
+    ///////////////////////////////localizacion por descripcion/////////////////////////////////////////////////////////////////////
+    // const search :HTMLElement = document.getElementById('search');
+    
+    // var defaultBounds = new google.maps.LatLngBounds(
+    //   new google.maps.LatLng(-33.8902, 151.1759),
+    //   new google.maps.LatLng(-33.8474, 151.2631));
+    
+    // var input = document.getElementById('search');
+    // var options = {
+    //   bounds: defaultBounds,
+    //   types: ['establishment']
+    // };
+
+    // const autocomplete = new google.maps.places.Autocomplete(input, options);
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
 
   }
 
@@ -180,8 +200,8 @@ export class UbicacionPage implements OnInit {
     const watch = await this.geolocation.watchPosition();
     watch.subscribe((data) => {
       console.log(data);
-      // this.latitude =  data.coords.latitude,
-      // this.longitude = data.coords.longitude
+      this.latitude =  data.coords.latitude,
+      this.longitude = data.coords.longitude
       //this.addMarker(data.coords.latitude,data.coords.longitude);
     });
 
@@ -192,6 +212,8 @@ export class UbicacionPage implements OnInit {
 
   }
   
-  onSearchChange(event:any){}
+  onSearchChange(event:any){
+
+  }
 
 }

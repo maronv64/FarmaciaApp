@@ -20,11 +20,11 @@ export class AppComponent {
       url: '/home',
       icon: 'home'
     },
-    {
-      title: 'Mi Perfil',
-      url: '/usuario',
-      icon: 'person'
-    },
+    // {
+    //   title: 'Mi Perfil',
+    //   url: '/usuario',
+    //   icon: 'person'
+    // },
     {
       title: 'Productos',
       url: '/productos',
@@ -45,10 +45,15 @@ export class AppComponent {
       url: '/misentregas',
       icon: 'list'
     },
+    // {
+    //   title: 'Ubicacion',
+    //   url: '/ubicacion',
+    //   icon: 'list'
+    // },
     {
-      title: 'Ubicacion',
-      url: '/ubicacion',
-      icon: 'list'
+      title: 'Configuracion',
+      url: '/configuracion',
+      icon: 'settings'
     }
     // {
     //   title: 'List',

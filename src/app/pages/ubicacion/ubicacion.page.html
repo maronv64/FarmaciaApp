@@ -1,13 +1,16 @@
 <ion-header no-border>
   <ion-toolbar>
-    <ion-title>ubicacion</ion-title>
+    <ion-title>Ubicacion</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button icon="arrow-back" [defaultHref]="null"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
-  <ion-searchbar placeholder="Lugar" inputmode="email" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar>
+  <!-- <ion-searchbar placeholder="Lugar" inputmode="email" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar> -->
 
 </ion-header>
 
 <ion-content >
-    
+    <input type="hidden" id="search">
   <div id="map"></div> 
 
 </ion-content>
@@ -15,6 +18,6 @@
 <ion-footer no-border>
   <ion-toolbar>
     <!-- <ion-title>Footer</ion-title> -->
-    <ion-button expand="full" color="primary" (click)="onClick()">Guardar Ubicación</ion-button>
+    <ion-button expand="full" color="primary" (click)="guardarUBi()">Guardar Ubicación</ion-button>
   </ion-toolbar>
 </ion-footer>
