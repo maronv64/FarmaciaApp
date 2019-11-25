@@ -6,8 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ProductosPage } from './productos.page';
-import { ProductoModalPage } from '../producto-modal/producto-modal.page';
-import { ProductoModalPageModule } from '../producto-modal/producto-modal.module';
+import { ProductosItemModalPage } from '../productos-item-modal/productos-item-modal.page';
+import { ProductosItemModalPageModule } from '../productos-item-modal/productos-item-modal.module';
 
 const routes: Routes = [
   {
@@ -17,13 +17,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  entryComponents:[ProductoModalPage],//add
+  entryComponents:[ProductosItemModalPage],//add
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    ProductoModalPageModule //add
+    ProductosItemModalPageModule //add
   ],
   declarations: [ProductosPage]
 })

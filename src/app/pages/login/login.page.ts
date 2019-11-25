@@ -17,6 +17,10 @@ export class LoginPage implements OnInit {
   @ViewChild('frmLogin',{static:false}) frmLogin:Form;
   
   ngOnInit() {
+    console.log(localStorage.getItem("miCuenta.nome_token"));
+    if (localStorage.getItem("miCuenta.nome_token")!=null) {
+      this.router.navigateByUrl("/productos");
+    }
   }
 
   login(){
