@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from "@ionic-native/geolocation/ngx";
 import { LoadingController, AlertController } from '@ionic/angular';
+// import { Platform } from "@ionic/angular";
+
 
 declare var google;
 @Component({
@@ -13,14 +15,33 @@ export class UbicacionPage implements OnInit {
   map=null;
   filtro:string="Ecuador";
 
+  markerr:any;
+  latitudee:any="";
+  longitudee:any="";
+  timestamp:any="";
+
   constructor(private geolocation:Geolocation,
               private loadingController:LoadingController,
-              private alertController:AlertController) { }
+              private alertController:AlertController,
+             ) {
+    // this.platform.ready().then(()=>{
+    //   var mapOption={
+    //     center:{lat:23.2366,lng:79.3822},
+    //     zoom: 7
+    //   }
+
+    //   this.map = new google.maps.Map(document.getElementById("map"),mapOption);
+
+    //   this.getGeoLocation();
+
+    // });
+               }
 
   ngOnInit() {
     this.loadMap();
     //this.hola();
   }
+
 
   
   // async presentLoading() {
@@ -185,7 +206,7 @@ export class UbicacionPage implements OnInit {
   }
 //////////////////////////////buscar la ubicacion actual///////////////////////////////////////////////////////////////
   private async getLocation(){
-
+    
     const rta = await this.geolocation.getCurrentPosition();
     return  {
       lat: rta.coords.latitude,
