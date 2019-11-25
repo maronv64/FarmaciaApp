@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'inicio',
     pathMatch: 'full'
   },
   {
@@ -23,7 +23,10 @@ const routes: Routes = [
   { path: 'miscompras', loadChildren: './pages/miscompras/miscompras.module#MiscomprasPageModule' },
   { path: 'misentregas', loadChildren: './pages/misentregas/misentregas.module#MisentregasPageModule' },
   { path: 'carrito', loadChildren: './pages/carrito/carrito.module#CarritoPageModule' },
-  { path: 'ubicacion', loadChildren: './pages/ubicacion/ubicacion.module#UbicacionPageModule' },  { path: 'configuracion', loadChildren: './pages/configuracion/configuracion.module#ConfiguracionPageModule' },
+  { path: 'ubicacion', loadChildren: './pages/ubicacion/ubicacion.module#UbicacionPageModule' },
+  { path: 'configuracion', loadChildren: './pages/configuracion/configuracion.module#ConfiguracionPageModule' },
+  // { path: 'productos-item-modal', loadChildren: './pages/productos-item-modal/productos-item-modal.module#ProductosItemModalPageModule' },
+
 
   // { path: 'misentregas-item-modal', loadChildren: './pages/misentregas-item-modal/misentregas-item-modal.module#MisentregasItemModalPageModule' },
 

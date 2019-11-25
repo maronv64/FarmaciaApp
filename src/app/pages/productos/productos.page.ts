@@ -7,7 +7,7 @@ import { Producto } from "src/app/interfaces/producto/producto";
 import { ProductoResult } from "src/app/interfaces/producto/producto-result";
 import { ProductosResult } from "src/app/interfaces/producto/productos-result";
 import { IonList, ModalController } from '@ionic/angular';
-import { ProductoModalPage } from '../producto-modal/producto-modal.page';
+import { ProductosItemModalPage } from '../productos-item-modal/productos-item-modal.page';
 
 @Component({
   selector: 'app-productos',
@@ -47,7 +47,7 @@ export class ProductosPage implements OnInit {
 
   async verItem(_item:Producto){
     const modal = await this.modalController.create({
-      component: ProductoModalPage,
+      component: ProductosItemModalPage,
       componentProps: {
         item:_item
       }

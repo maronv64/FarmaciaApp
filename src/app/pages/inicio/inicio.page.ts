@@ -14,6 +14,13 @@ export class InicioPage implements OnInit {
   }
 
   startApp(){
+    if (localStorage.getItem("miCuente.nome_token")==null) {
+      console.log(localStorage.getItem("miCuente.nome_token"));
+      
+      this.router.navigateByUrl("/login");
+    }else{
+      this.router.navigateByUrl("/productos");
+    }
     // this.router.navigateByUrl('/home');
   }
 
