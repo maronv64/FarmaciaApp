@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';  // cominicacion con las apis
 
 import { Geolocation } from "@ionic-native/geolocation/ngx";  //add
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';//add
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,8 @@ import { Geolocation } from "@ionic-native/geolocation/ngx";  //add
     Geolocation, //add
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    LocalNotifications//add
   ],
   bootstrap: [AppComponent]
 })

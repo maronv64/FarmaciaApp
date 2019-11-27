@@ -168,6 +168,8 @@ export class UbicacionPage implements OnInit {
 
     const hooo:any[]=['1','2','3'];
 
+    console.log(lat,lng);
+    
 
     const marker = new google.maps.Marker({
       position: {
@@ -191,6 +193,7 @@ export class UbicacionPage implements OnInit {
 
     //Zoom a la zona del marker seleccionado
     google.maps.event.addListener(marker,'click',function() {
+      //marker.setMap(null);
       this.map.setZoom(16);
       this.map.setCenter(marker.getPosition());
     }); 
