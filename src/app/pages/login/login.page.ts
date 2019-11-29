@@ -69,7 +69,7 @@ export class LoginPage implements OnInit {
       // localStorage.setItem('miCuenta.id',item.items.id);
       // localStorage.setItem('miCuenta.id')
       // this.router.navigateByUrl('/home');
-      console.log(item);
+      //console.log(item);
 
       if (item.items.nome_token!=null) {
         loading.dismiss();

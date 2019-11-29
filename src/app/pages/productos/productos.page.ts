@@ -38,7 +38,7 @@ export class ProductosPage implements OnInit {
   }
 
   ionViewWillEnter(){
-    console.log("hola");
+    console.log("hola->cargar pagina");
     this.filtro('');
   }
 
@@ -57,7 +57,7 @@ export class ProductosPage implements OnInit {
       item=>{
         this.items = item.items;
         loading.dismiss();
-        console.log(this.items);
+        //console.log(this.items);
       },error=>{
         console.log(error);
       }
@@ -85,7 +85,7 @@ export class ProductosPage implements OnInit {
     //this.listaProductos.closeSlidingItems();
     await modal.present();
     const {data} = await modal.onDidDismiss();
-    console.log(data);
+    //console.log(data);
     if (data!=null) {
       this.contadorCarrito +=data;
       this.colorCarrito = "primary";    

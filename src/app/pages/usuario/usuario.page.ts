@@ -20,7 +20,7 @@ export class UsuarioPage implements OnInit {
     // var contador:number = 0;
     this.usuarioService.show(this.nome_token,this.nome_token).subscribe(item=>{
       console.log("item: ");
-      console.log(item);
+      //console.log(item);
       this.usuario.name = item.items.name;
       this.usuario.email = item.items.email;
       this.usuario.cedula = item.items.cedula;

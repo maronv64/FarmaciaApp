@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UsuarioService } from "src/app/services/usuario/usuario.service";
+import { Router } from '@angular/router';
 // import { Usuario } from './interfaces/usuario';
 
 @Component({
@@ -67,7 +68,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private usuarioService:UsuarioService
+    private usuarioService:UsuarioService,
+    private router:Router
   ) {
     this.initializeApp();
   }
@@ -142,21 +144,28 @@ export class AppComponent {
     const nome_token_user= localStorage.getItem("miCuenta.nome_token");
     this.usuarioService.show(nome_token_user,nome_token_user).subscribe(
       item=>{
-
+        // console.log("dsdsds");
+        
+        // console.log("userssss",item);
+        
         if (item.items.tipo.cod=="003") {
           this.appPages= rutasCourier;
         }
+        // else{
+        //   this.appPages= rutasCliente;
+        // }
         if (item.items.tipo.cod=="004") {
           this.appPages= rutasCliente;
         }
         if (item.items.tipo.cod=="001") {
-          console.log(item.items.tipo.cod );      
+          //console.log(item.items.tipo.cod );      
           this.appPages= rutasTodo;
         }
-        else{
-          this.appPages= rutasCliente;
-        }
-      },error=>{}
+        
+      },error=>{
+        console.log(error);
+        
+      }
     );
 
     this.platform.ready().then(() => {
@@ -164,4 +173,9 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
+  irA(_ruta:string){
+    this.router.navigateByUrl(_ruta);
+  }
+
 }
