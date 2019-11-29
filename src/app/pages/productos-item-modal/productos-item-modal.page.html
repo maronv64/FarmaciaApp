@@ -1,6 +1,6 @@
 <ion-header no-border>
   <ion-toolbar>
-    <ion-title text-capitalize>Informacion</ion-title>
+    <ion-title  text-capitalize>Informacion</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,22 +11,22 @@
       <ion-col size="12">
         <ion-item>
           <ion-label>Nombre:</ion-label>
-          <ion-text color="primary"><p>{{item.descripcion}}</p></ion-text> 
+          <ion-text color="cruz-primary"><p>{{item.descripcion}}</p></ion-text> 
           <!-- <ion-label slot="end">{{item.descripcion}}</ion-label> -->
         </ion-item>
         <ion-item>
           <ion-label >Precio:</ion-label> 
-          <ion-text color="primary"><p>$ 0{{item.precio}}</p></ion-text>
+          <ion-text color="cruz-primary"><p>$ 0{{item.precio}}</p></ion-text>
           <!-- <ion-label slot="end">{{item.precio}}</ion-label> -->
         </ion-item>
         <ion-item>
           <ion-label >Presentacion:</ion-label>
-          <ion-text color="primary"><p>{{item.presentacion}}</p></ion-text>
+          <ion-text color="cruz-primary"><p>{{item.presentacion}}</p></ion-text>
           <!-- <ion-label slot="end">{{item.presentacion}}</ion-label> -->
         </ion-item>
         <ion-item>
           <ion-label >Consentracion:</ion-label>
-          <ion-text color="primary"><p>{{item.consentracion || '...'}}</p></ion-text>
+          <ion-text color="cruz-primary"><p>{{item.consentracion || '...'}}</p></ion-text>
           <!-- <ion-label slot="end">{{item.consentracion}}</ion-label> -->
         </ion-item>
         <ion-item>
@@ -34,11 +34,11 @@
           <!-- <ion-label slot="end">{{item.observacion || '...'}}</ion-label> -->
         </ion-item>
         <ion-item>
-          <ion-text color="primary"><p>{{item.observacion}}</p></ion-text>
+          <ion-text color="cruz-primary"><p>{{item.observacion}}</p></ion-text>
         </ion-item>
         <ion-item>
           <ion-label >Existencias:</ion-label> 
-          <ion-text color="primary"><p>{{item.cantidad}}</p></ion-text>
+          <ion-text color="cruz-primary"><p>{{item.cantidad}}</p></ion-text>
           <!-- <ion-label slot="end">{{item.cantidad}}</ion-label> -->
         </ion-item>
       </ion-col>
@@ -48,21 +48,27 @@
         <ion-button (click)="salir()" color="secondary" expand="full">Cancelar</ion-button>
       </ion-col>
       <ion-col size="6">
-        <ion-button (click)="add()" color="primary" expand="full">Agregar al carro</ion-button>        
+        <ion-button (click)="add()" color="cruz-primary" expand="full">Agregar al carro</ion-button>        
       </ion-col>
     </ion-row> -->
   </ion-grid>
 
 </ion-content>
 
-<ion-footer>
+<ion-footer no-border>
   <ion-toolbar>
     <ion-row>
       <ion-col size="6">
-        <ion-button (click)="salir()" color="secondary" expand="full">Cancelar</ion-button>
+        <ion-button (click)="salir()" color="cruz-tertiary" expand="full">
+          <ion-icon slot="start" name="close-circle-outline"></ion-icon>
+          Cancelar
+        </ion-button>
       </ion-col>
       <ion-col size="6">
-        <ion-button (click)="add()" color="primary" expand="full">Agregar al carro</ion-button>        
+        <ion-button (click)="add()" color="cruz-primary" expand="full">
+          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+          Agregar
+        </ion-button>        
       </ion-col>
     </ion-row>
   </ion-toolbar>

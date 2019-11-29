@@ -54,8 +54,7 @@ export class LoginPage implements OnInit {
     //   this.router.navigateByUrl('/home');
     // });
     const loading = await this.loadingController.create({
-      message: 'Hellooo',
-      duration: 2000,
+      message: 'Espere un monento...',
       spinner: 'bubbles'
     });
     await loading.present();
@@ -71,11 +70,10 @@ export class LoginPage implements OnInit {
       // localStorage.setItem('miCuenta.id')
       // this.router.navigateByUrl('/home');
       console.log(item);
+
       if (item.items.nome_token!=null) {
-        setTimeout(() => {
-          loading.dismiss();
-        }, 1000);
-        this.router.navigateByUrl('/home');
+        loading.dismiss();
+        this.router.navigateByUrl('/productos');
         console.log('ingresado: '+localStorage.getItem('miCuenta.nome_token'));        
       }
     },error=>{

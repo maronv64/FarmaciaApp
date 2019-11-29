@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { ProductoService } from "src/app/services/producto/producto.service";
@@ -6,7 +6,7 @@ import { ProductoService } from "src/app/services/producto/producto.service";
 import { Producto } from "src/app/interfaces/producto/producto";
 import { ProductoResult } from "src/app/interfaces/producto/producto-result";
 import { ProductosResult } from "src/app/interfaces/producto/productos-result";
-import { IonList, ModalController } from '@ionic/angular';
+import { IonList, ModalController, LoadingController } from '@ionic/angular';
 import { ProductosItemModalPage } from '../productos-item-modal/productos-item-modal.page';
 
 @Component({
@@ -18,25 +18,45 @@ export class ProductosPage implements OnInit {
 
   constructor(private productoService: ProductoService, 
               private router:Router, 
-              private modalController:ModalController) {
+              private modalController:ModalController,
+              private loadingController:LoadingController) {
   }
 
   _request:Producto={};
   items:Producto[];
   nome_token_user:string;
 
+  // contadorCarrito:number=0;
+  contadorCarrito : number=null; 
+  colorCarrito: string = null;
+
   @ViewChild('listaProductos',{static:false}) listaProductos:IonList;
 
   ngOnInit() {
-    this.filtroProductos('');
+    this.filtro('');
     // console.log("recibido:"+localStorage.getItem('Usuario.name'));
   }
-  async filtroProductos(_nome_token:string){
+
+  ionViewWillEnter(){
+    console.log("hola");
+    this.filtro('');
+  }
+
+  
+  async filtro(_nome_token:string){
+   
+    const loading = await this.loadingController.create({
+      message: 'Espere un monento...',
+      spinner: 'bubbles'
+    });
+    await loading.present();
+
     this._request.nome_token = _nome_token;
     this.nome_token_user = localStorage.getItem('miCuenta.nome_token');
     this.productoService.filtro(this.nome_token_user,this._request).subscribe(
       item=>{
         this.items = item.items;
+        loading.dismiss();
         console.log(this.items);
       },error=>{
         console.log(error);
@@ -65,7 +85,13 @@ export class ProductosPage implements OnInit {
     //this.listaProductos.closeSlidingItems();
     await modal.present();
     const {data} = await modal.onDidDismiss();
-    this.router.navigateByUrl('/productos');
+    console.log(data);
+    if (data!=null) {
+      this.contadorCarrito +=data;
+      this.colorCarrito = "primary";    
+    }
+
+    //this.router.navigateByUrl('/productos');
     // console.log(data._cantidad._cantidad);
     
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from "@ionic-native/geolocation/ngx";
 import { LoadingController, AlertController } from '@ionic/angular';
+import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { Ubicacion } from 'src/app/interfaces/ubicacion/ubicacion';
 // import { Platform } from "@ionic/angular";
 
 
@@ -15,14 +17,17 @@ export class UbicacionPage implements OnInit {
   map=null;
   filtro:string="Ecuador";
 
-  markerr:any;
   latitudee:any="";
   longitudee:any="";
   timestamp:any="";
+  nome_token_user:string;
+
+  _ubicacion:Ubicacion={};
 
   constructor(private geolocation:Geolocation,
               private loadingController:LoadingController,
               private alertController:AlertController,
+              private usuarioService:UsuarioService
              ) {
     // this.platform.ready().then(()=>{
     //   var mapOption={
@@ -43,24 +48,44 @@ export class UbicacionPage implements OnInit {
   }
 
 
-  
-  // async presentLoading() {
-  //   const loading = await this.loadingController.create({
-  //     message: 'Hellooo',
-  //     duration: 2000,
-  //     spinner: 'bubbles'
-  //   });
-  //   await loading.present();
-  // }
+  async guardarUBi(){
+    this.nome_token_user= localStorage.getItem("miCuenta.nome_token");
+    this.usuarioService.ubicacion(this.nome_token_user,this._ubicacion).subscribe(
+      item=>{
 
-  async guardarUBi(){}
+      },error=>{}
+    );
+
+    const alert = await this.alertController.create({
+      header: 'Alerta!',
+      message: 'Desea Guardar la ubicacion Actual?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Ok',
+          handler: () => {
+            console.log('Ubicacion Guardada...');
+          }
+        }
+      ]
+    });
+  
+    await alert.present();
+    
+  }
  
   async loadMap(){
     //////////////////////////////////////////////////////////////////////////////////////////
     const loading = await this.loadingController.create({
       message:'espere por favor...',
       spinner:'bubbles',
-      duration:5000
+      // duration:5000
     });
     loading.present();
     /////////////////////////////////////////////////////////////////////////////////////////
@@ -182,6 +207,11 @@ export class UbicacionPage implements OnInit {
       animation:google.maps.Animation.BOUNCE // animacion
     });
 
+    this._ubicacion.latitud=lat;
+    this._ubicacion.longitud=lng;
+    console.log(this._ubicacion);
+    
+    //console.log(marker);
     
         
     this.markers.forEach((item,a) => {

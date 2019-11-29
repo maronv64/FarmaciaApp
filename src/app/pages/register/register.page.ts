@@ -31,7 +31,7 @@ export class RegisterPage implements OnInit {
           localStorage.setItem("miCuenta.nome_token",item.items.nome_token);
           console.log(localStorage.getItem("miCuenta.nome_token"));
           
-          this.router.navigateByUrl("/home");
+          this.router.navigateByUrl("/productos");
         },error=>{
           this.presentAlert();
         });

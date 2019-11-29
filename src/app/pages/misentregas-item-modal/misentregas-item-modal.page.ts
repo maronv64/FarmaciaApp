@@ -19,5 +19,15 @@ export class MisentregasItemModalPage implements OnInit {
   salir(){
     modalController.dismiss();
   }
+  cont:number=0;
+  verUbicacionCliente(){
+    if (this.cont==0) {
+      document.getElementById("detalleEntrega").hidden=true;
+      this.cont=1;
+    }else if(this.cont==1){
+      document.getElementById("detalleEntrega").hidden=false;
+      this.cont=0;
+    }
+  }
 
 }

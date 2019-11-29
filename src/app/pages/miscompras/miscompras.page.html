@@ -7,7 +7,7 @@
 <ion-header no-border>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="cruz-primary"></ion-menu-button>
     </ion-buttons>
     <ion-title>
       Mis Compras
@@ -33,16 +33,15 @@
             </ion-item>
             <!-- Opciones del item -->
             <ion-item-options side="start">
-              <ion-item-option color="primary" (click)="verItem(item)">
-                <ion-icon slot="icon-only" name="heart"></ion-icon>
+              <ion-item-option color="cruz-primary" (click)="verItem(item)">
+                <ion-icon slot="icon-only" name="clipboard"></ion-icon>
               </ion-item-option>
             </ion-item-options>
-            <ion-item-options side="end">
-              <!-- <ion-item-option color="primary" (click)="favorite(item)">Favorite</ion-item-option> -->
-              <ion-item-option color="danger" (click)="eliminar(item)">
+            <!-- <ion-item-options side="end">
+              <ion-item-option color="cruz-tertiary" (click)="eliminar(item)">
                 <ion-icon slot="icon-only" name="trash"></ion-icon>
               </ion-item-option>
-            </ion-item-options>
+            </ion-item-options> -->
       
           </ion-item-sliding>
       

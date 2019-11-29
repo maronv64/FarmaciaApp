@@ -26,4 +26,17 @@ export class ComprasService {
 
     return this.http.get<VentasResult>(`${this.apiUrl}ventas_mi_historial_pediodos/${_nome_token_user}/`,{headers:this._headers,params:_params});
   }
+
+  delete(_nome_token_user:string,_request:Venta){
+    // return this.http.delete<ProductoResult>()
+    let _params = new HttpParams({
+      fromObject : {
+        'nome_token' : _request.nome_token,
+      }
+    });
+    return this.http.delete<VentaResult>(`${this.apiUrl}ventas_delete/${_nome_token_user}/`,{headers:this._headers,params:_params});
+    // let httpOptions={headers:this._headers,params:this._params};
+
+  }
+
 }

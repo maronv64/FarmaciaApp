@@ -20,7 +20,7 @@ export class ProductosItemModalPage implements OnInit {
 
   constructor(private modalController:ModalController,
               private alertController:AlertController,
-              private loginService:CarritoService) { }
+              private carritoService:CarritoService) { }
 
   ngOnInit() {
   }
@@ -59,11 +59,11 @@ export class ProductosItemModalPage implements OnInit {
             this.newItemCarrito.idproducto = this.item.id;
             // this.itemCarrito.precio_u   = this.item.precio;
             const nome_token_user =localStorage.getItem('miCuenta.nome_token');
-            this.loginService.store(nome_token_user,this.newItemCarrito)
+            this.carritoService.store(nome_token_user,this.newItemCarrito)
                 .subscribe(
                   data=>{
-                    console.log(data);
-                    this.modalController.dismiss();
+                    //console.log(data);
+                    this.modalController.dismiss(1);
                   },
                   error=>{
                     console.log(error);

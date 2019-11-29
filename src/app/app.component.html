@@ -3,14 +3,29 @@
     <ion-menu type="overlay">
       <ion-header no-border>
         <ion-toolbar >
-          <ion-title>Menu</ion-title>
+          <ion-buttons slot="end">
+            <ion-item lines="none">
+              <!-- <ion-avatar> -->
+                  <img src="/assets/img/logocruzazul.jpg" alt="">
+              <!-- </ion-avatar>     -->
+            </ion-item>
+          </ion-buttons>
+          <ion-title></ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
+        <!-- <ion-item lines="none"></ion-item>
+        <ion-item lines="none">
+          <ion-col size="4"></ion-col>
+          <ion-col size="4">
+              <ion-img src="/assets/img/logocruzazul_logo.png"></ion-img>
+          </ion-col>
+          <ion-col size="4"></ion-col>
+        </ion-item> -->
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" detail>
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-icon color="cruz-primary" slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
               </ion-label>

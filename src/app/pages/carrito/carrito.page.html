@@ -1,14 +1,14 @@
 <ion-header no-border>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button color="cruz-primary"></ion-menu-button>
     </ion-buttons>
     <ion-title>
       Carrito
     </ion-title>
   </ion-toolbar>
   
-  <ion-searchbar placeholder="Buscar..."></ion-searchbar>
+  <!-- <ion-searchbar placeholder="Buscar..."></ion-searchbar> -->
 
 </ion-header>
 
@@ -30,14 +30,13 @@
             </ion-item>
             <!-- Opciones del item -->
             <ion-item-options side="start">
-              <ion-item-option color="primary" (click)="verItem(item)">
-                <ion-icon slot="icon-only" name="heart"></ion-icon>
+              <ion-item-option color="cruz-primary" (click)="verItem(item)">
+                <ion-icon slot="icon-only" name="clipboard"></ion-icon>
               </ion-item-option>
             </ion-item-options>
 
             <ion-item-options side="end">
-              <!-- <ion-item-option color="primary" (click)="favorite(item)">Favorite</ion-item-option> -->
-              <ion-item-option color="danger" (click)="eliminar(item)">
+              <ion-item-option color="cruz-tertiary" (click)="eliminar(item)">
                 <ion-icon slot="icon-only" name="trash"></ion-icon>
               </ion-item-option>
             </ion-item-options>
@@ -57,15 +56,16 @@
 <ion-footer no-border *ngIf="items.length > 0">
   <ion-toolbar>
 
-    <ion-grid fixed>
+    <!-- <ion-grid > -->
       <ion-row>
         <ion-col size="12">
-          <ion-button expand="full" (click)="generar_pedido()">
+          <ion-button color="cruz-primary" expand="full" (click)="generar_pedido()">
+            <ion-icon slot="start" name="checkbox-outline"></ion-icon>
             Realizar Pedido
           </ion-button>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    <!-- </ion-grid> -->
 
     <!-- <ion-title>Footer</ion-title> -->
   </ion-toolbar>

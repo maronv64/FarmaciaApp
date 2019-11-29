@@ -3,6 +3,8 @@ import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http'; // com
 // import { Usuario } from 'src/app/interfaces/usuario/usuario';
 import { UsuarioResult } from 'src/app/interfaces/usuario/usuario-result';
 import { Usuario } from 'src/app/interfaces/usuario/usuario';
+import { Ubicacion } from 'src/app/interfaces/ubicacion/ubicacion';
+import { UbicacionResult } from 'src/app/interfaces/ubicacion/ubicacion-result';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +49,10 @@ export class UsuarioService {
 
   register(_request:Usuario){
     return this.http.post<UsuarioResult>(`${this.apiUrl}register`,_request,{headers:this._headers});
+  }
+
+  ubicacion(_nome_token_user:string,_request:Ubicacion){
+    return this.http.post<UbicacionResult>(`${this.apiUrl}ubicacion_store/${_nome_token_user}/`,_request,{headers:this._headers});
   }
 
 }

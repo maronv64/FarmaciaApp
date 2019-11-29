@@ -1,4 +1,5 @@
 import {TipoUsuario} from "../tipo_usuario/tipo-usuario";
+import { Ubicacion } from "../ubicacion/ubicacion";
 export interface Usuario {
   id?:string;
   idtipo?:string;
@@ -14,4 +15,5 @@ export interface Usuario {
   updated_at?:string;
   nome_token?:string;
   tipo?:TipoUsuario;
+  ubicacion?:Ubicacion[];
 }

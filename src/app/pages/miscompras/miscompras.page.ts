@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComprasService } from 'src/app/services/compras/compras.service';
 import { Venta } from 'src/app/interfaces/venta/venta';
-import { IonList, ModalController } from '@ionic/angular';
+import { IonList, ModalController, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { MiscomprasItemModalPage } from '../miscompras-item-modal/miscompras-item-modal.page';
 
@@ -18,6 +18,7 @@ export class MiscomprasPage implements OnInit {
 
   constructor(private comprasService:ComprasService,
               private modalController:ModalController,
+              private alertController: AlertController,
               private router:Router) { }
 
   ngOnInit() {
@@ -47,6 +48,43 @@ export class MiscomprasPage implements OnInit {
     await modal.present();
     const {data} = await modal.onDidDismiss();
     this.router.navigateByUrl('/miscompras');
+  }
+  
+  async eliminar(_item:Venta){
+
+    const alert = await this.alertController.create({
+      header: 'Esta seguro?',
+      message: 'que desea eliminar',
+      buttons: [
+        {
+          text:'Cancelar',
+          role:'cancel',
+          cssClass:'secondary',
+          handler: () => {
+            console.log('confirmar salida');
+          }
+        },
+        {
+          text:'Ok',
+          handler: ()=>{
+            // =================Eliminar========================
+            this.nome_token_user = localStorage.getItem('miCuenta.nome_token');
+            this.comprasService.delete(this.nome_token_user,_item).subscribe(
+              item=>{
+                this.filtro("");
+              },error=>{
+                this.ListaCompras.closeSlidingItems();
+              }
+            );
+              
+            console.log('eliminacion confirmada');
+            //==========================================
+          }
+        }
+      ]
+    });
+
+
   }
 
 }

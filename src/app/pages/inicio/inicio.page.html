@@ -1,8 +1,8 @@
 <ion-header no-border>
   <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button color="primary" (click)="startApp()">Ingresar</ion-button>
-    </ion-buttons>
+    <!-- <ion-buttons slot="end">
+      <ion-button color="cruz-primary" (click)="startApp()">Ingresar</ion-button>
+    </ion-buttons> -->
     <!-- <ion-title>inicio</ion-title> -->
   </ion-toolbar>
 </ion-header>
@@ -11,17 +11,30 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-lg="4" size-md="4" size-sm="6" size-xs="12"></ion-col>
-      <ion-col size="12" size-lg="4" size-md="4" size-sm="6" size-xs="12">
-        <ion-img src="/assets/img/conejo.svg"></ion-img>
-      </ion-col>
-      <ion-col size="12" size-lg="4" size-md="4" size-sm="6" size-xs="12"></ion-col>
+      <ion-col size="12"><br><br><br><br><br></ion-col>
     </ion-row>
     <ion-row>
+      <ion-col size="2" size-lg="2" size-md="4" size-sm="4" size-xs="1"></ion-col>
+      <ion-col size="8" size-lg="8" size-md="4" size-sm="4" size-xs="10">
+        <ion-img src="/assets/img/logocruzazul.jpg"></ion-img>
+      </ion-col>
+      <ion-col size="2" size-lg="2" size-md="4" size-sm="4" size-xs="1"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12"><br><br><br><br></ion-col>
+    </ion-row>
+    
+    <ion-row>
       <ion-col size="12">
-          <ion-text color="primary">
-              <p>p: The quick brown fox jumps over the lazy dog</p>
-            </ion-text>
+        <ion-button expand="full" color="cruz-primary" (click)="startApp()">Ingresar</ion-button>
+        <ion-text color="cruz-primary"> 
+          <a routerLink="/register" > <p>Crea una Cuenta</p> </a>
+        </ion-text>
+        
+        <!-- <ion-button routerLink="/register" expand="full" color="cruz-primary" >Crea una Cuenta</ion-button> -->
+        <!-- <ion-text color="cruz-primary">
+            <p>p: The quick brown fox jumps over the lazy dog</p>
+        </ion-text> -->
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -29,6 +42,6 @@
 </ion-content>
 <ion-footer no-border>
   <ion-toolbar>
-    <ion-button routerLink="/register" expand="full" color="primary" >Registrarse</ion-button>
+    <!-- <ion-button routerLink="/register" expand="full" color="cruz-primary" >Registrarse</ion-button> -->
   </ion-toolbar>
 </ion-footer>
