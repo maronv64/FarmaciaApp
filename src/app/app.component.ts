@@ -75,7 +75,17 @@ export class AppComponent {
   }
 
   initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
 
+  irA(_ruta:string){
+    this.router.navigateByUrl(_ruta);
+  }
+
+  menu(){
     const rutasTodo = [
       {
         title: 'Productos',
@@ -142,8 +152,12 @@ export class AppComponent {
     ];
 
     const nome_token_user= localStorage.getItem("miCuenta.nome_token");
+    console.log( "nome_token_user",nome_token_user);
+    
     this.usuarioService.show(nome_token_user,nome_token_user).subscribe(
       item=>{
+        console.log(item);
+        
         // console.log("dsdsds");
         
         // console.log("userssss",item);
@@ -167,15 +181,6 @@ export class AppComponent {
         
       }
     );
-
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
-
-  irA(_ruta:string){
-    this.router.navigateByUrl(_ruta);
   }
 
 }

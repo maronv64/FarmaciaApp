@@ -7,6 +7,7 @@ import { Form } from '@angular/forms';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { AlertController, LoadingController } from '@ionic/angular';
 
+import { AppComponent } from "../../app.component";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginPage implements OnInit {
   constructor( private usuarioService: UsuarioService,
                private router:Router, 
                private localNotifications:LocalNotifications,
-               private loadingController:LoadingController
+               private loadingController:LoadingController,
+               private appComponent:AppComponent
                ) { }
   
   usuario:Usuario={};
@@ -61,9 +63,6 @@ export class LoginPage implements OnInit {
 
     this.usuarioService.login(this.usuario.email,this.usuario.password).subscribe(item=>{
       
-        
-       
-      
       //guardando en una variable global el token del usuario
       localStorage.setItem('miCuenta.nome_token',item.items.nome_token);
       // localStorage.setItem('miCuenta.id',item.items.id);
@@ -74,12 +73,15 @@ export class LoginPage implements OnInit {
       if (item.items.nome_token!=null) {
         loading.dismiss();
         this.router.navigateByUrl('/productos');
-        console.log('ingresado: '+localStorage.getItem('miCuenta.nome_token'));        
+        console.log('ingresado: '+localStorage.getItem('miCuenta.nome_token')); 
+        this.appComponent.menu();       
       }
     },error=>{
       console.log(error);
       loading.dismiss();
     });
+
+    
 
   }
 
