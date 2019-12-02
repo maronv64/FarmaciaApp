@@ -18,6 +18,7 @@ export class ProductosItemModalPage implements OnInit {
 
   newItemCarrito:DetalleVenta={};
 
+
   constructor(private modalController:ModalController,
               private alertController:AlertController,
               private carritoService:CarritoService) { }
@@ -28,7 +29,7 @@ export class ProductosItemModalPage implements OnInit {
   async salir(){
     this.modalController.dismiss();
   }
-
+  
   async add(){
     const alert = await this.alertController.create({
       header: 'Elija la cantidad!',
@@ -39,7 +40,7 @@ export class ProductosItemModalPage implements OnInit {
           type: 'number',
           value: 1,
           min: 1,
-          max: this.item.cantidad
+          max: this.item.cantidad,
         }
       ],
       buttons: [
@@ -54,21 +55,24 @@ export class ProductosItemModalPage implements OnInit {
           text: 'Ok',
           handler: (input) => {
             console.log('Confirm Ok');
-
-            this.newItemCarrito.cantidad   = input._cantidad;
-            this.newItemCarrito.idproducto = this.item.id;
-            // this.itemCarrito.precio_u   = this.item.precio;
-            const nome_token_user =localStorage.getItem('miCuenta.nome_token');
-            this.carritoService.store(nome_token_user,this.newItemCarrito)
-                .subscribe(
-                  data=>{
-                    //console.log(data);
-                    this.modalController.dismiss(1);
-                  },
-                  error=>{
-                    console.log(error);
-                  }
-                );
+            if (input._cantidad!="") {
+              
+              this.newItemCarrito.cantidad   = input._cantidad;
+              this.newItemCarrito.idproducto = this.item.id;
+              // this.itemCarrito.precio_u   = this.item.precio;
+              const nome_token_user =localStorage.getItem('miCuenta.nome_token');
+              this.carritoService.store(nome_token_user,this.newItemCarrito)
+                  .subscribe(
+                    data=>{
+                      //console.log(data);
+                      this.modalController.dismiss(1);
+                    },
+                    error=>{
+                      console.log(error);
+                    }
+                  );
+            }
+            
             // const _item = this.item;
             // this.modalController.dismiss({ _item,_cantidad});
           }
@@ -80,5 +84,8 @@ export class ProductosItemModalPage implements OnInit {
 
     // this.modalController.dismiss(_item);
   }
+
+
+  
 
 }

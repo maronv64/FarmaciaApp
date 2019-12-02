@@ -25,6 +25,8 @@ const routes: Routes = [
   { path: 'carrito', loadChildren: './pages/carrito/carrito.module#CarritoPageModule' },
   { path: 'ubicacion', loadChildren: './pages/ubicacion/ubicacion.module#UbicacionPageModule' },
   { path: 'configuracion', loadChildren: './pages/configuracion/configuracion.module#ConfiguracionPageModule' },
+  // { path: 'ubicacion-item-modal', loadChildren: './pages/ubicacion-item-modal/ubicacion-item-modal.module#UbicacionItemModalPageModule' },
+
   // { path: 'productos-item-modal', loadChildren: './pages/productos-item-modal/productos-item-modal.module#ProductosItemModalPageModule' },
 
 

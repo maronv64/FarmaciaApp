@@ -1,6 +1,11 @@
 <ion-header no-border>
   <ion-toolbar>
     <ion-title>Detalle del Pedido</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="salir()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
@@ -18,7 +23,7 @@
               <p>Cliente:{{item.cliente.name}}</p>
             <ion-buttons slot="end">
               <ion-button (click)="verUbicacionCliente()">
-                <ion-icon slot="icon-only" name="eye"></ion-icon>
+                <ion-icon slot="icon-only" name="pin"></ion-icon>
               </ion-button>
             </ion-buttons>
           </ion-item>

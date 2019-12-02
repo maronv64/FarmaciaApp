@@ -13,6 +13,10 @@ export interface Venta {
     created_at?:string;
     updated_at?:string;
     nome_token?:string;
+
+    ubicacion_descripcion?:string;
+    ubicacion_latitud?:number;
+    ubicacion_longitud?:number;
     
     estado?:EstadoVenta;
     cliente?:Usuario;
