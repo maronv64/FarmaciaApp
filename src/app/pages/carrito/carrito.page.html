@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
+  <!-- <ion-grid> -->
     <ion-row>
       <ion-col>
 
@@ -22,11 +22,12 @@
           <ion-item-sliding *ngFor="let item of items">
             <!-- datos del item -->
             <ion-item >
-              <ion-label>
-                <h3>{{ item.producto.descripcion }}</h3>
-                <p>[{{ item.cantidad }}]</p>
-              </ion-label>
-              <ion-label slot="end" text-rigth>$ {{ item.subtotal }}</ion-label>
+              <ion-text color="cruz-primary">
+                {{ item.producto.descripcion }} : [{{ item.cantidad }}]
+              </ion-text>
+              <ion-text slot="end" color="cruz-primary">
+                $ {{ item.subtotal }}
+              </ion-text>
             </ion-item>
             <!-- Opciones del item -->
             <ion-item-options side="start">
@@ -49,7 +50,7 @@
       </ion-col>
     </ion-row>
     
-  </ion-grid>
+  <!-- </ion-grid> -->
 
 </ion-content>
 
@@ -59,7 +60,7 @@
     <!-- <ion-grid > -->
       <ion-row>
         <ion-col size="12">
-          <ion-button color="cruz-primary" expand="full" (click)="generar_pedido()">
+          <ion-button color="cruz-primary" expand="full" (click)="escojerUbicacion()">
             <ion-icon slot="start" name="checkbox-outline"></ion-icon>
             Realizar Pedido
           </ion-button>

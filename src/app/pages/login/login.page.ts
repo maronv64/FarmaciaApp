@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     console.log(localStorage.getItem("miCuenta.nome_token"));
     if (localStorage.getItem("miCuenta.nome_token")!=null) {
-      this.router.navigateByUrl("/productos");
+      this.router.navigateByUrl("/home");
     }
     this.schedule();
   }
@@ -65,6 +65,7 @@ export class LoginPage implements OnInit {
       
       //guardando en una variable global el token del usuario
       localStorage.setItem('miCuenta.nome_token',item.items.nome_token);
+      localStorage.setItem('miCuenta.tipo.cod',item.items.tipo.cod)
       // localStorage.setItem('miCuenta.id',item.items.id);
       // localStorage.setItem('miCuenta.id')
       // this.router.navigateByUrl('/home');
@@ -72,7 +73,7 @@ export class LoginPage implements OnInit {
 
       if (item.items.nome_token!=null) {
         loading.dismiss();
-        this.router.navigateByUrl('/productos');
+        this.router.navigateByUrl('/home');
         console.log('ingresado: '+localStorage.getItem('miCuenta.nome_token')); 
         this.appComponent.menu();       
       }

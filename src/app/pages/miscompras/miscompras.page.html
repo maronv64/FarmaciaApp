@@ -25,11 +25,12 @@
           <ion-item-sliding *ngFor="let item of items">
             <!-- datos del item -->
             <ion-item >
-              <ion-label>
-                <h3>{{item.fecha}}</h3>
-                <p>[{{ item.estado.descripcion }}]</p>
-              </ion-label>
-              <ion-label slot="end" text-rigth>$ {{ item.total }}</ion-label>
+              <ion-text color="cruz-primary">
+                {{item.fecha}} [{{ item.estado.descripcion }}]
+              </ion-text>
+              <ion-text slot="end" color="cruz-primary">
+                  $ {{ item.total }}
+              </ion-text>
             </ion-item>
             <!-- Opciones del item -->
             <ion-item-options side="start">

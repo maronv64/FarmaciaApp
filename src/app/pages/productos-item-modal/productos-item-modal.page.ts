@@ -29,7 +29,7 @@ export class ProductosItemModalPage implements OnInit {
   async salir(){
     this.modalController.dismiss();
   }
-
+  
   async add(){
     const alert = await this.alertController.create({
       header: 'Elija la cantidad!',
@@ -55,7 +55,7 @@ export class ProductosItemModalPage implements OnInit {
           text: 'Ok',
           handler: (input) => {
             console.log('Confirm Ok');
-            if (input._cantidad=="") {
+            if (input._cantidad!="") {
               
               this.newItemCarrito.cantidad   = input._cantidad;
               this.newItemCarrito.idproducto = this.item.id;

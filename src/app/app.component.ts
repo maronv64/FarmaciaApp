@@ -79,6 +79,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    this.menu();
   }
 
   irA(_ruta:string){
@@ -151,36 +152,21 @@ export class AppComponent {
       }
     ];
 
-    const nome_token_user= localStorage.getItem("miCuenta.nome_token");
-    console.log( "nome_token_user",nome_token_user);
+    const miCuenta_tipo_cod= localStorage.getItem("miCuenta.tipo.cod");
     
-    this.usuarioService.show(nome_token_user,nome_token_user).subscribe(
-      item=>{
-        console.log(item);
-        
-        // console.log("dsdsds");
-        
-        // console.log("userssss",item);
-        
-        if (item.items.tipo.cod=="003") {
-          this.appPages= rutasCourier;
-        }
-        // else{
-        //   this.appPages= rutasCliente;
-        // }
-        if (item.items.tipo.cod=="004") {
-          this.appPages= rutasCliente;
-        }
-        if (item.items.tipo.cod=="001") {
-          //console.log(item.items.tipo.cod );      
-          this.appPages= rutasTodo;
-        }
-        
-      },error=>{
-        console.log(error);
-        
-      }
-    );
+    if (miCuenta_tipo_cod=="003") {
+      this.appPages= rutasCourier;
+    }
+    // else{
+    //   this.appPages= rutasCliente;
+    // }
+    if (miCuenta_tipo_cod=="004") {
+      this.appPages= rutasCliente;
+    }
+    if (miCuenta_tipo_cod=="001") {
+      //console.log(item.items.tipo.cod );      
+      this.appPages= rutasTodo;
+    }
   }
 
 }

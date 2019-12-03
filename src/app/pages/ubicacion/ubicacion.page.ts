@@ -17,8 +17,8 @@ export class UbicacionPage implements OnInit {
   map=null;
   filtro:string="Ecuador";
 
-  latitudee:any="";
-  longitudee:any="";
+  latitudee:any=""; // variable global para almacenar la nogitud
+  longitudee:any=""; // lo mismo de arriba
   timestamp:any="";
   nome_token_user:string;
 
@@ -107,7 +107,7 @@ export class UbicacionPage implements OnInit {
     // });
 
     
-
+    // este controlador de evento se dipara cuando se  el mapa  esta activo, llamo a la funcion addMarker
     google.maps.event.addListenerOnce(this.map,'idle',(data)=>{
   
       
@@ -127,7 +127,7 @@ export class UbicacionPage implements OnInit {
       // });
       
     });
-
+    // este evento se dispara  cuando se le da click al mapa
     google.maps.event.addListener(this.map,'click',(data)=>{
       // console.log("otra coordenada",data.latLng.lat());
       console.log("otra coordenada",data.latLng);
@@ -156,6 +156,7 @@ export class UbicacionPage implements OnInit {
 
   }
 
+  // esta funcion manda una alerta en caso de querer crear un marker
   async hola(lat:number,lng:number,google){
     const alert = await this.alertController.create({
       header: 'Esta seguro?',

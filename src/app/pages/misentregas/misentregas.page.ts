@@ -58,4 +58,8 @@ export class MisentregasPage implements OnInit {
     this.router.navigateByUrl('/misentregas');
   }
 
+  async rechazarItem(_item:Venta) {
+    
+  }
+
 }

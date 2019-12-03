@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { CarritoPage } from './carrito.page';
 import { CarritoItemModalPageModule } from '../carrito-item-modal/carrito-item-modal.module'; //add
 import { CarritoItemModalPage } from '../carrito-item-modal/carrito-item-modal.page'; //add
+import { UbicacionItemModalPage } from '../ubicacion-item-modal/ubicacion-item-modal.page';
+import { UbicacionItemModalPageModule } from '../ubicacion-item-modal/ubicacion-item-modal.module';
 
 const routes: Routes = [
   {
@@ -17,13 +19,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  entryComponents:[CarritoItemModalPage], //add
+  entryComponents:[CarritoItemModalPage,UbicacionItemModalPage], //add
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    CarritoItemModalPageModule  //add
+    CarritoItemModalPageModule,  //add
+    UbicacionItemModalPageModule //add
   ],
   declarations: [CarritoPage]
 })

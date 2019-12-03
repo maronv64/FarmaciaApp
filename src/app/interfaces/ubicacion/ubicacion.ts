@@ -1,8 +1,8 @@
 export interface Ubicacion {
     id?:string;
     idusuario?:string;
-    longitud?:any;
-    latitud?:any;
+    longitud?:number;
+    latitud?:number;
     descripcion?:string;
     estado_del?:string;
     nome_token?:string;

@@ -19,7 +19,7 @@ export class InicioPage implements OnInit {
       
       this.router.navigateByUrl("/login");
     }else{
-      this.router.navigateByUrl("/productos");
+      this.router.navigateByUrl("/home");
     }
     // this.router.navigateByUrl('/home');
   }
