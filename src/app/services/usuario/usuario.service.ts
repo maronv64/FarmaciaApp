@@ -55,4 +55,8 @@ export class UsuarioService {
     return this.http.post<UbicacionResult>(`${this.apiUrl}ubicacion_store/${_nome_token_user}/`,_request,{headers:this._headers});
   }
 
+  update(_nome_token_user:string,_request:Usuario){
+    return this.http.put(`${this.apiUrl}usuarios_update/${_nome_token_user}`,_request,{headers:this._headers})
+  }
+
 }

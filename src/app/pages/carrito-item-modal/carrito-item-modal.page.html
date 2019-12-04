@@ -26,7 +26,7 @@
             <ion-text color="cruz-primary">Precio:</ion-text>
           </ion-item>
           <ion-item *ngIf="item.precio_u != null">
-            <ion-text>{{item.precio_u}}</ion-text>
+            <ion-text>{{item.precio_u | currency :'USD':'symbol':'2.2-2'}}</ion-text>
           </ion-item>
           <ion-item *ngIf="item.cantidad != null">
             <ion-text color="cruz-primary">Pedidos:</ion-text>

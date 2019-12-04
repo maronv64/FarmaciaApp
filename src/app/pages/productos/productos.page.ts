@@ -96,4 +96,10 @@ export class ProductosPage implements OnInit {
     
   }
 
+  async verCarrito(){
+    this.contadorCarrito = null;
+    this.colorCarrito = null;  
+    this.router.navigateByUrl('/carrito');
+  }
+
 }

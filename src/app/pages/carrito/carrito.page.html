@@ -13,7 +13,19 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-grid> -->
+
+  <ion-grid fixed *ngIf="items.length <=0">
+    <br><br><br>
+    <ion-row >
+      <ion-col size="1"></ion-col>
+      <ion-col size="10">
+        <ion-img src="/assets/img/fondo_1.png"></ion-img>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid fixed  *ngIf="items.length > 0">
+    
     <ion-row>
       <ion-col>
 
@@ -25,8 +37,8 @@
               <ion-text color="cruz-primary">
                 {{ item.producto.descripcion }} : [{{ item.cantidad }}]
               </ion-text>
-              <ion-text slot="end" color="cruz-primary">
-                $ {{ item.subtotal }}
+              <ion-text slot="end" color="cruz-tertiary">
+                {{ item.subtotal | currency :'USD':'symbol':'2.2-2' }}
               </ion-text>
             </ion-item>
             <!-- Opciones del item -->
@@ -50,7 +62,7 @@
       </ion-col>
     </ion-row>
     
-  <!-- </ion-grid> -->
+  </ion-grid>
 
 </ion-content>
 

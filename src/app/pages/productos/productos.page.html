@@ -13,7 +13,7 @@
       Productos
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button routerLink="/carrito">
+      <ion-button (click)="verCarrito()"> <!--routerLink="/carrito"-->
         <ion-icon slot="icon-only" name="cart" [color]="colorCarrito"></ion-icon><ion-label [color]="colorCarrito">{{contadorCarrito || '' }}</ion-label>
       </ion-button>
     </ion-buttons>
@@ -41,7 +41,7 @@
           
           <ion-card-content>
             {{ item.descripcion }} 
-            <ion-card-title> <p> c/u: $ {{ item.precio }}</p> </ion-card-title>
+            <ion-card-title> <p> c/u: {{ item.precio | currency :'USD':'symbol':'2.2-2' }}</p> </ion-card-title>
           </ion-card-content>
 
         </ion-card>

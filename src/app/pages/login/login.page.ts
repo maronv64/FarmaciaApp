@@ -17,20 +17,20 @@ import { AppComponent } from "../../app.component";
 export class LoginPage implements OnInit {
 
   constructor( private usuarioService: UsuarioService,
-               private router:Router, 
-               private localNotifications:LocalNotifications,
-               private loadingController:LoadingController,
-               private appComponent:AppComponent
+               private router: Router, 
+               private localNotifications: LocalNotifications,
+               private loadingController: LoadingController,
+               private appComponent: AppComponent
                ) { }
   
-  usuario:Usuario={};
+  usuario: Usuario = {};
   // existe:boolean;
-  @ViewChild('frmLogin',{static:false}) frmLogin:Form;
+  @ViewChild('frmLogin',{static: false}) frmLogin: Form;
   
   ngOnInit() {
-    console.log(localStorage.getItem("miCuenta.nome_token"));
-    if (localStorage.getItem("miCuenta.nome_token")!=null) {
-      this.router.navigateByUrl("/home");
+    console.log(localStorage.getItem('miCuenta.nome_token'));
+    if (localStorage.getItem('miCuenta.nome_token') != null) {
+      this.router.navigateByUrl('/home');
     }
     this.schedule();
   }
@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
 // Schedule a single notification
     this.localNotifications.schedule({
       id: 1,
-      text: 'Single ILocalNotification',
+      text: 'Noemy y Dolo',
       // sound: isAndroid? 'file://sound.mp3': 'file://beep.caf',
       data: { secret: "key" }
     });

@@ -1,31 +1,25 @@
 <ion-header no-border>
   <ion-toolbar>
     <ion-title>Ubicacion</ion-title>
-    <!-- <ion-buttons slot="end">
-      <ion-back-button icon="arrow-back" [defaultHref]="null"></ion-back-button>
-    </ion-buttons> -->
+    <ion-buttons slot="end">
+      <ion-button (click)="salir()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+  <!-- <ion-searchbar placeholder="Lugar" inputmode="email" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar> -->
+
 </ion-header>
 
-<ion-content>
+<ion-content >
+    <input type="hidden" id="search">
   <div id="map_modal"></div> 
+
 </ion-content>
 
 <ion-footer no-border>
   <ion-toolbar>
-    <ion-row>
-      <ion-col size="6">
-        <ion-button (click)="salir()" color="cruz-tertiary" expand="full">
-          <ion-icon slot="start" name="close-circle-outline"></ion-icon>
-          Cancelar
-        </ion-button>
-      </ion-col>
-      <ion-col size="6">
-        <ion-button (click)="guardarUBi()" color="cruz-primary" expand="full" >
-          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
-          Guardar
-        </ion-button>
-      </ion-col>
-    </ion-row>
+    <!-- <ion-title>Footer</ion-title> -->
+    <ion-button expand="full" color="cruz-primary" (click)="guardarUBi()">Guardar Ubicación</ion-button>
   </ion-toolbar>
 </ion-footer>

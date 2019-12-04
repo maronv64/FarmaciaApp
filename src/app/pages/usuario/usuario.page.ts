@@ -30,7 +30,7 @@ export class UsuarioPage implements OnInit {
   }
 
   editar(){
-
+    
   }
 
 }
