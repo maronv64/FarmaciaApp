@@ -9,6 +9,7 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { UbicacionItemModalPage } from '../ubicacion-item-modal/ubicacion-item-modal.page';
 import { Ubicacion } from 'src/app/interfaces/ubicacion/ubicacion';
 import { Geolocation } from "@ionic-native/geolocation/ngx";
+// import { UbicacionPage } from '../ubicacion/ubicacion.page';
 
 @Component({
   selector: 'app-carrito',

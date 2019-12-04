@@ -13,7 +13,7 @@
       Productos
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button routerLink="/carrito">
+      <ion-button (click)="verCarrito()"> <!--routerLink="/carrito"-->
         <ion-icon slot="icon-only" name="cart" [color]="colorCarrito"></ion-icon><ion-label [color]="colorCarrito">{{contadorCarrito || '' }}</ion-label>
       </ion-button>
     </ion-buttons>
@@ -32,6 +32,15 @@
 
 <ion-content>
 
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Refrescar..."
+      refreshingSpinner="bubbles"
+      refreshingText="Refrescando...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <ion-grid >
     <ion-row >
       <ion-col class="ion-no-padding" *ngFor="let item of items" size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
@@ -41,7 +50,7 @@
           
           <ion-card-content>
             {{ item.descripcion }} 
-            <ion-card-title> <p> c/u: $ {{ item.precio }}</p> </ion-card-title>
+            <ion-card-title> <p> c/u: {{ item.precio | currency :'USD':'symbol':'2.2-2' }}</p> </ion-card-title>
           </ion-card-content>
 
         </ion-card>

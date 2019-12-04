@@ -25,8 +25,8 @@
               <ion-text color="cruz-primary">
                 {{ item.producto.descripcion }} : [{{ item.cantidad }}]
               </ion-text>
-              <ion-text slot="end" color="cruz-primary">
-                $ {{ item.subtotal }}
+              <ion-text slot="end" color="cruz-tertiary">
+                {{ item.subtotal | currency :'USD':'symbol':'2.2-2' }}
               </ion-text>
             </ion-item>
             <!-- Opciones del item -->

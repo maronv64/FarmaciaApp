@@ -85,7 +85,7 @@ export class UbicacionPage implements OnInit {
     const loading = await this.loadingController.create({
       message:'espere por favor...',
       spinner:'bubbles',
-      // duration:5000
+      duration:3000
     });
     loading.present();
     /////////////////////////////////////////////////////////////////////////////////////////
@@ -97,7 +97,7 @@ export class UbicacionPage implements OnInit {
     const mapEle :HTMLElement = document.getElementById('map'); // en esta linea construye el mapa en el div
     this.map = new google.maps.Map(mapEle,{
       center: myLatLog, 
-      zoom:12,
+      zoom:15,
     });
     
     
@@ -225,7 +225,7 @@ export class UbicacionPage implements OnInit {
     //Zoom a la zona del marker seleccionado
     google.maps.event.addListener(marker,'click',function() {
       //marker.setMap(null);
-      this.map.setZoom(16);
+      this.map.setZoom(17);
       this.map.setCenter(marker.getPosition());
     }); 
 

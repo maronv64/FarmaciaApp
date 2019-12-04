@@ -16,6 +16,7 @@
 </ion-header>
 
 <ion-content>
+
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -28,8 +29,8 @@
               <ion-text color="cruz-primary">
                 {{item.fecha}} [{{ item.estado.descripcion }}]
               </ion-text>
-              <ion-text slot="end" color="cruz-primary">
-                  $ {{ item.total }}
+              <ion-text slot="end" color="cruz-tertiary">
+                {{ item.total | currency :'USD':'symbol':'2.2-2'  }}
               </ion-text>
             </ion-item>
             <!-- Opciones del item -->

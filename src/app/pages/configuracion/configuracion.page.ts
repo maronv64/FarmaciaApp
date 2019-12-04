@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+// import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+// import { Usuario } from 'src/app/interfaces/usuario/usuario';
 
 @Component({
   selector: 'app-configuracion',
@@ -9,14 +11,34 @@ import { AlertController } from '@ionic/angular';
 })
 export class ConfiguracionPage implements OnInit {
 
-  constructor(private alertController:AlertController,private router:Router) { }
+  constructor(private alertController: AlertController,
+              private router: Router,
+              ) { }
 
   ngOnInit() {
   }
 
+  // nome_token_user: string="";
+  // usuario:Usuario={};
+
+
+
   async cerrarSesion() {
+    
+    // this.nome_token_user = localStorage.getItem('miCuenta.nome_token');
+    // console.log(this.nome_token_user);
+    
+    // this.usuarioService.show(this.nome_token_user,this.nome_token_user).subscribe(
+    //   item=>{
+    //     console.log(item.items.name);
+    //     this.usuario.name = item.items.name;
+    //   },error=>{
+    //     console.log(error);
+    // });
+
+    
     const alert = await this.alertController.create({
-      header: 'Sesion!',
+      header: `Sesion`,
       message: 'Desea cerrar la sesion?',
       buttons: [
         {
@@ -36,7 +58,6 @@ export class ConfiguracionPage implements OnInit {
         }
       ]
     });
-  
     await alert.present();
   }
 

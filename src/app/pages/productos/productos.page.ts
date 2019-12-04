@@ -37,12 +37,21 @@ export class ProductosPage implements OnInit {
     // console.log("recibido:"+localStorage.getItem('Usuario.name'));
   }
 
+
+
   ionViewWillEnter(){
     console.log("hola->cargar pagina");
     this.filtro('');
   }
 
-  
+  async doRefresh(event){
+    setTimeout(() => {
+      this.filtro('');
+      event.target.complete();  
+    }, 1000);
+    
+  }
+
   async filtro(_nome_token:string){
    
     const loading = await this.loadingController.create({
@@ -94,6 +103,12 @@ export class ProductosPage implements OnInit {
     //this.router.navigateByUrl('/productos');
     // console.log(data._cantidad._cantidad);
     
+  }
+
+  async verCarrito(){
+    this.contadorCarrito = null;
+    this.colorCarrito = null;  
+    this.router.navigateByUrl('/carrito');
   }
 
 }

@@ -15,15 +15,13 @@
       <ion-col>
         
         <ion-list>
-          <ion-list-header>
-            <!-- <ion-col size="6">  <ion-label>NOMBRE</ion-label> </ion-col>
-            <ion-col size="3">  <ion-label>CANTIDAD</ion-label> </ion-col>
-            <ion-col size="3">  <ion-label>SUBTOTAL</ion-label> </ion-col> -->
-          </ion-list-header>
+          <!-- <ion-list-header>
+
+          </ion-list-header> -->
           <ion-item *ngFor="let item of item.detalle">
-              <ion-col size="6">  {{item.producto.descripcion}}</ion-col>
-              <ion-col size="3">  {{item.cantidad}}</ion-col>
-              <ion-col size="3">  ${{item.subtotal}} </ion-col>
+              <ion-col size="8">  {{item.producto.descripcion}}</ion-col>
+              <ion-col size="1">  {{item.cantidad}}</ion-col>
+              <ion-col size="3">  {{item.subtotal | currency :'USD':'symbol':'2.2-2'}} </ion-col>
           </ion-item>
         </ion-list>
 
