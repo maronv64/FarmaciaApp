@@ -108,7 +108,7 @@ export class UbicacionItemModalPage implements OnInit {
   private markers:any[]=[];
   private addMarker(lat:number,lng:number,google){
 
-    const hooo:any[]=['1','2','3'];
+    
 
     console.log(lat,lng);
     

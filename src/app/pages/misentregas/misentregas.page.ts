@@ -55,7 +55,10 @@ export class MisentregasPage implements OnInit {
     this.ListaEntregas.closeSlidingItems();
     await modal.present();
     const {data} = await modal.onDidDismiss();
-    this.router.navigateByUrl('/misentregas');
+    if (data==1) {
+      this.filtro('');
+    }
+    
   }
 
   async rechazarItem(_item:Venta) {

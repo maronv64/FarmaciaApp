@@ -11,7 +11,7 @@
 
 <ion-content>
   <ion-grid fixed>
-    
+
     <ion-row>
       <ion-col>
         
@@ -22,15 +22,11 @@
           <ion-item *ngFor="let item of item.detalle">
               <ion-col size="8">  {{item.producto.descripcion}}</ion-col>
               <ion-col size="1">  {{item.cantidad}}</ion-col>
-<<<<<<< HEAD
               <ion-col size="3"> 
                 <ion-text color="cruz-tertiary">
                   {{item.subtotal | currency :'USD':'symbol':'2.2-2'}}
                 </ion-text> 
               </ion-col>
-=======
-              <ion-col size="3">  {{item.subtotal | currency :'USD':'symbol':'2.2-2'}} </ion-col>
->>>>>>> 611f7312050cff1691c05fb8e691fc323a4cfb34
           </ion-item>
         </ion-list>
 

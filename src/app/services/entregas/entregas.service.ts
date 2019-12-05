@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpParams, HttpClient } from '@angular/common/http';
 import { VentasResult } from 'src/app/interfaces/venta/ventas-result';
+import { Venta } from 'src/app/interfaces/venta/venta';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,28 @@ export class EntregasService {
     });
 
     return this.http.get<VentasResult>(`${this.apiUrl}ventas_mi_historial_entregas/${_nome_token_user}/`,{headers:this._headers,params:_params});
+  }
+
+  rechazar_entrega(_nome_token_user:string,_request:Venta){
+    let _params = new HttpParams({
+      fromObject : {
+        'nome_token' : _request.nome_token,
+      }
+    });
+
+    return this.http.put<VentasResult>(`${this.apiUrl}ventas_rechazar_entrega/${_nome_token_user}/`,_request,{headers:this._headers});
+
+  }
+
+  finalizar_venta(_nome_token_user:string,_request:Venta){
+    let _params = new HttpParams({
+      fromObject : {
+        'nome_token' : _request.nome_token,
+      }
+    });
+
+    return this.http.put<VentasResult>(`${this.apiUrl}vemtas_finalizar_venta/${_nome_token_user}/`,_request,{headers:this._headers});
+
   }
 
 }

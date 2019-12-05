@@ -7,6 +7,7 @@ export interface Venta {
     idcliente?:string;
     idcourier?:string;
     fecha?:string;
+    fecha_f?:string;
     subtotal?:string;
     total?:string;
     estado_del?:string;

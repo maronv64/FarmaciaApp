@@ -62,27 +62,27 @@ export class LoginPage implements OnInit {
     await loading.present();
 
     this.usuarioService.login(this.usuario.email,this.usuario.password).subscribe(item=>{
-      
-      //guardando en una variable global el token del usuario
-      localStorage.setItem('miCuenta.nome_token',item.items.nome_token);
-      localStorage.setItem('miCuenta.tipo.cod',item.items.tipo.cod)
-      // localStorage.setItem('miCuenta.id',item.items.id);
-      // localStorage.setItem('miCuenta.id')
-      // this.router.navigateByUrl('/home');
-      //console.log(item);
+      try {
+        if (item.items.nome_token!=null) {
 
-      if (item.items.nome_token!=null) {
+          localStorage.setItem('miCuenta.nome_token',item.items.nome_token);
+          localStorage.setItem('miCuenta.tipo.cod',item.items.tipo.cod)
+  
+          loading.dismiss();
+          this.router.navigateByUrl('/home');
+          console.log('ingresado: '+localStorage.getItem('miCuenta.nome_token')); 
+          this.appComponent.menu();       
+        }
+      } catch (error) {
         loading.dismiss();
-        this.router.navigateByUrl('/home');
-        console.log('ingresado: '+localStorage.getItem('miCuenta.nome_token')); 
-        this.appComponent.menu();       
+        this.router.navigateByUrl('/login');
       }
+     
     },error=>{
       console.log(error);
       loading.dismiss();
+      this.router.navigateByUrl('/login');
     });
-
-    
 
   }
 
