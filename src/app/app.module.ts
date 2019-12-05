@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';  // cominicacion con la
 
 import { Geolocation } from "@ionic-native/geolocation/ngx";  //add
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';//add
+import { PipesModule } from "./pipes/pipes.module"; //add
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';//add
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    PipesModule //add
   ],
   providers: [
     Geolocation, //add

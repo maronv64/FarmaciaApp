@@ -29,6 +29,7 @@ export class ProductosPage implements OnInit {
   // contadorCarrito:number=0;
   contadorCarrito : number=null; 
   colorCarrito: string = null;
+  textoBuscar: string = '';
 
   @ViewChild('listaProductos',{static:false}) listaProductos:IonList;
 
@@ -37,7 +38,9 @@ export class ProductosPage implements OnInit {
     // console.log("recibido:"+localStorage.getItem('Usuario.name'));
   }
 
-
+  onSearchChange(event){
+    this.textoBuscar = event.target.value;
+  }
 
   ionViewWillEnter(){
     console.log("hola->cargar pagina");

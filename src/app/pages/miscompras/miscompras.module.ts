@@ -9,6 +9,8 @@ import { MiscomprasPage } from './miscompras.page';
 import { MiscomprasItemModalPage } from '../miscompras-item-modal/miscompras-item-modal.page';
 import { MiscomprasItemModalPageModule } from '../miscompras-item-modal/miscompras-item-modal.module';
 
+import { PipesModule } from "src/app/pipes/pipes.module";
+
 const routes: Routes = [
   {
     path: '',
@@ -23,7 +25,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-   MiscomprasItemModalPageModule //add
+    MiscomprasItemModalPageModule, //add
+    PipesModule
   ],
   declarations: [MiscomprasPage]
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComprasService } from 'src/app/services/compras/compras.service';
 import { Venta } from 'src/app/interfaces/venta/venta';
-import { IonList, ModalController, AlertController } from '@ionic/angular';
+import { IonList, ModalController, AlertController, IonSegment, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { MiscomprasItemModalPage } from '../miscompras-item-modal/miscompras-item-modal.page';
 
@@ -14,16 +14,27 @@ export class MiscomprasPage implements OnInit {
 
   nome_token_user:string;
   items:Venta[]=[];
+  textoBuscar: string = '001';
+
   @ViewChild('ListaCompras',{static:false}) ListaCompras:IonList;
+  @ViewChild('segmentoCompras',{static:false}) segmentoCompras:IonSegment;
 
   constructor(private comprasService:ComprasService,
               private modalController:ModalController,
               private alertController: AlertController,
-              private router:Router) { }
+              private router:Router,
+              private platform:Platform) { }
 
   ngOnInit() {
+    //this.segmentoCompras.value = 'pedidos';
+    //this.segmentoCompras.value="pedidos";
+    
     this.filtro('');
+    this.platform.ready().then(()=>{
+      this.segmentoCompras.value = "pedidos";
+    });
   }
+
   //esta funcion sirve para traer los productos almacenados en la farmacia y almacenarlos en una lista
   async filtro(_value:string){
     this.nome_token_user = localStorage.getItem('miCuenta.nome_token');
@@ -33,6 +44,18 @@ export class MiscomprasPage implements OnInit {
         },error=>{
           console.log(error);
         });
+  }
+
+  segmentChanged(event){
+    if (event.target.value==="pedidos") {
+      this.textoBuscar = '001';
+    } else if(event.target.value==="en_proceso") {
+      this.textoBuscar = '002';
+    } else if(event.target.value==="finalizados") {
+      this.textoBuscar = '003';
+    }
+    console.log(event.target.value);
+    
   }
 
   async verItem(_item:Venta){

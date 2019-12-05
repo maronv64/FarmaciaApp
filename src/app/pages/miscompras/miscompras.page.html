@@ -13,6 +13,19 @@
       Mis Compras
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment #segmentoCompras (ionChange)="segmentChanged($event)" color="cruz-primary">
+      <ion-segment-button value="pedidos" class="ion-no-padding">
+        <ion-label>Pendientes</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="en_proceso" class="ion-no-padding">
+        <ion-label>En Proceso</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="finalizados" class="ion-no-padding">
+        <ion-label>Finalizadas</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -23,7 +36,7 @@
 
         <ion-list #ListaCompras>
       
-          <ion-item-sliding *ngFor="let item of items">
+          <ion-item-sliding *ngFor="let item of items | filtroRelacion: textoBuscar :'estado':'cod'">
             <!-- datos del item -->
             <ion-item >
               <ion-text color="cruz-primary">

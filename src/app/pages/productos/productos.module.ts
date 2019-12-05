@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProductosPage } from './productos.page';
 import { ProductosItemModalPage } from '../productos-item-modal/productos-item-modal.page';
 import { ProductosItemModalPageModule } from '../productos-item-modal/productos-item-modal.module';
+import { PipesModule } from "src/app/pipes/pipes.module";
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    ProductosItemModalPageModule //add
+    ProductosItemModalPageModule, //add
+    PipesModule
   ],
   declarations: [ProductosPage]
 })

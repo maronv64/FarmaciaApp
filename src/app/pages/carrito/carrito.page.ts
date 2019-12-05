@@ -287,6 +287,10 @@ export class CarritoPage implements OnInit,OnDestroy {
     
     this._ubicacion.latitud= myLatLog.lat;
     this._ubicacion.longitud = myLatLog.lng;
+
+    // this._ubicacion.latitud= 89.38293823;
+    // this._ubicacion.longitud = -89.38293823;
+
     if (this._ubicacion.longitud != null) {
       this.generar_pedido2();
     }

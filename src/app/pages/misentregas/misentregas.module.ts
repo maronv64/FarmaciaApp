@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { MisentregasPage } from './misentregas.page';
 import { MisentregasItemModalPageModule } from '../misentregas-item-modal/misentregas-item-modal.module';
 import { MisentregasItemModalPage } from '../misentregas-item-modal/misentregas-item-modal.page';
+import { PipesModule } from "src/app/pipes/pipes.module";
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    MisentregasItemModalPageModule
+    MisentregasItemModalPageModule,
+    PipesModule
   ],
   declarations: [MisentregasPage]
 })

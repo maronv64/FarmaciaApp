@@ -22,7 +22,7 @@
   <!-- <ion-grid fixed>
     <ion-row>
       <ion-col size="12"> -->
-          <ion-searchbar placeholder="Filter Schedules"></ion-searchbar>
+        <ion-searchbar placeholder="Nombre del producto..." (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar>
       <!-- </ion-col>
     </ion-row>
   </ion-grid> -->
@@ -43,7 +43,7 @@
 
   <ion-grid >
     <ion-row >
-      <ion-col class="ion-no-padding" *ngFor="let item of items" size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+      <ion-col class="ion-no-padding" *ngFor="let item of items | filtro: textoBuscar : 'descripcion'" size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
         <ion-card button (click)="verItem(item)">
           <ion-img *ngIf="item.file_name == null" src="/assets/img/logocruzazul.jpg"></ion-img>
           <ion-img *ngIf="item.file_name != null" src="http://localhost:8000/img/items/{{item.file_name}}.{{item.file_extension}}"></ion-img>
