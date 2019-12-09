@@ -39,4 +39,15 @@ export class ComprasService {
 
   }
 
+  finalizar_venta(_nome_token_user:string,_request:Venta){
+    let _params = new HttpParams({
+      fromObject : {
+        'nome_token' : _request.nome_token,
+      }
+    });
+
+    return this.http.put<VentasResult>(`${this.apiUrl}vemtas_finalizar_venta/${_nome_token_user}/`,_request,{headers:this._headers});
+
+  }
+
 }

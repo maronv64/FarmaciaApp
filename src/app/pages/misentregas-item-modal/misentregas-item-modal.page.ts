@@ -78,9 +78,9 @@ export class MisentregasItemModalPage implements OnInit {
             this.entregasService.rechazar_entrega(this.nome_token_user,item).subscribe(item=>{
               if (item.code=="418") {
                 this.mensaje();
-                modalController.dismiss(0);
+                this.modalController.dismiss(0);
               } else{
-                modalController.dismiss(1);
+                this.modalController.dismiss(1);
               }
                
                

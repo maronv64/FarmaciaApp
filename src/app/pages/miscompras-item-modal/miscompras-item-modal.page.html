@@ -45,8 +45,8 @@
     </ion-row> -->
   </ion-grid>
 </ion-content>
-<!-- <ion-footer no-border>
+<ion-footer *ngIf="item.estado.cod === '002'" no-border>
   <ion-toolbar>
-    <ion-button (click)="salir()" color="cruz-primary" expand="full">Cerrar</ion-button>
+    <ion-button (click)="generarFactura(item)" color="cruz-primary" expand="full">Finalizar</ion-button>
   </ion-toolbar>
-</ion-footer> -->
+</ion-footer>

@@ -70,7 +70,12 @@ export class MiscomprasPage implements OnInit {
     this.ListaCompras.closeSlidingItems();
     await modal.present();
     const {data} = await modal.onDidDismiss();
-    this.router.navigateByUrl('/miscompras');
+    console.log(data);
+    if (data==0) {
+      
+    }else if(data==1){
+      this.filtro('');
+    }
   }
   
   async eliminar(_item:Venta){

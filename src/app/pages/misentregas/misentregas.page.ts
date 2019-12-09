@@ -80,8 +80,4 @@ export class MisentregasPage implements OnInit {
     
   }
 
-  async rechazarItem(_item:Venta) {
-    
-  }
-
 }
