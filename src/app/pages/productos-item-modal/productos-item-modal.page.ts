@@ -65,7 +65,7 @@ export class ProductosItemModalPage implements OnInit {
                   .subscribe(
                     data=>{
                       //console.log(data);
-                      this.modalController.dismiss(1);
+                      this.modalController.dismiss(parseInt(input._cantidad));
                     },
                     error=>{
                       console.log(error);

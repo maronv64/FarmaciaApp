@@ -100,6 +100,8 @@ export class ProductosPage implements OnInit {
     //console.log(data);
     if (data!=null) {
       this.contadorCarrito +=data;
+      console.log(data);
+      
       this.colorCarrito = "primary";    
     }
 

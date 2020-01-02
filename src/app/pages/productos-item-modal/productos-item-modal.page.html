@@ -17,40 +17,45 @@
         <ion-list>
           
           <ion-item lines="none" *ngIf="item.descripcion != null">
-            <ion-text color="primary">Nombre:</ion-text>
+            <ion-text slot="start" color="primary">Nombre:</ion-text> <ion-text slot="end" class="ion-text-lowercase"> {{item.descripcion}} </ion-text>
           </ion-item>
-          <ion-item lines="none" *ngIf="item.descripcion != null">
-            <ion-text>{{item.descripcion}}</ion-text>
-          </ion-item>          
+          <!-- <ion-item lines="none" *ngIf="item.descripcion != null" >
+            <ion-text class="ion-text-lowercase">{{item.descripcion}}</ion-text>
+          </ion-item>           -->
           <ion-item lines="none" *ngIf="item.precio != null">
-            <ion-text color="cruz-primary">Precio:</ion-text>
+            <ion-text slot="start" color="cruz-primary">Precio:</ion-text> <ion-text slot="end"> {{item.precio | currency :'USD':'symbol':'2.2-2' }}</ion-text>
           </ion-item>
-          <ion-item lines="none" *ngIf="item.precio != null">
+          <!-- <ion-item lines="none" *ngIf="item.precio != null">
             <ion-text>{{item.precio | currency :'USD':'symbol':'2.2-2' }}</ion-text>
-          </ion-item>
+          </ion-item> -->
           <ion-item lines="none" *ngIf="item.cantidad != null">
-            <ion-text color="cruz-primary">Existencias:</ion-text>
+            <ion-text slot="start" color="cruz-primary">Existencias:</ion-text>
+            <ion-text slot="end"> {{item.cantidad}} </ion-text>
           </ion-item>
-          <ion-item lines="none" *ngIf="item.cantidad != null">
+          <!-- <ion-item lines="none" *ngIf="item.cantidad != null">
             <ion-text>{{item.cantidad}}</ion-text>
-          </ion-item>  
+          </ion-item>   -->
           <ion-item lines="none" *ngIf="item.presentacion != null">
-            <ion-text color="cruz-primary">Presentacion:</ion-text>
+            <ion-text slot="start" color="cruz-primary">Presentacion:</ion-text>
+            <ion-text slot="end" > {{item.presentacion}} </ion-text>
           </ion-item>
-          <ion-item lines="none" *ngIf="item.presentacion != null">
+          <!-- <ion-item lines="none" *ngIf="item.presentacion != null">
             <ion-text>{{item.presentacion}}</ion-text>
-          </ion-item>
+          </ion-item> -->
           <ion-item lines="none" *ngIf="item.consentracion != null">
-            <ion-text color="cruz-primary">Consentracion:</ion-text>
+            <ion-text slot="start" color="cruz-primary">Consentracion:</ion-text>
+            <ion-text slot="end">
+              <h1>Awesome text</h1>
+            </ion-text>
           </ion-item>
-          <ion-item lines="none" *ngIf="item.consentracion != null">
+          <!-- <ion-item lines="none" *ngIf="item.consentracion != null">
             <ion-text>{{item.consentracion}}</ion-text>
-          </ion-item>
+          </ion-item> -->
           <ion-item lines="none" *ngIf="item.observacion != null">
             <ion-text color="cruz-primary">Observaciones:</ion-text>
           </ion-item>
           <ion-item lines="none" *ngIf="item.observacion != null">
-            <ion-text>{{item.observacion}}</ion-text>
+            <ion-text class="ion-text-lowercase">{{item.observacion}}</ion-text>
           </ion-item>
           
         </ion-list>

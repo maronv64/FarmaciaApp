@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/usuario/usuario';
-import { Form, Validator } from '@angular/forms';
+import { Form } from '@angular/forms';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
@@ -15,7 +15,7 @@ export class RegisterPage implements OnInit {
   constructor(private usuarioService:UsuarioService,
               private router:Router,
               private alertController:AlertController,
-              private validator:Validator) { }
+              ) { }
   usuario:Usuario={};
   nome_token_user:string='';
 

@@ -65,7 +65,13 @@
         <ion-item>
           <ion-label position="stacked" color="cruz-primary">password:</ion-label>
           <ion-input [(ngModel)]="usuario.password2" placeholder="clave" [type]="inputType"></ion-input>
-          <ion-icon slot="end" name="eye" (click)="verPassword()" [color]="newcolor"></ion-icon>
+          <!-- <ion-label ></ion-label> -->
+          <ion-buttons slot="end">
+            <ion-button (click)="verPassword()">
+              <ion-icon slot="icon-only" name="eye" [color]="newcolor"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          
         </ion-item>
       </ion-col>
     </ion-row>

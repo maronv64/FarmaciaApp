@@ -27,7 +27,7 @@ export class MisentregasPage implements OnInit {
   ngOnInit() {
     this.filtro('');
     this.platform.ready().then(()=>{
-      this.segmentoCompras.value = "pedidos";
+      this.segmentoCompras.value = "en_proceso";
     });
   }
 

@@ -49,7 +49,9 @@
           <ion-img *ngIf="item.file_name != null" src="http://localhost:8000/img/items/{{item.file_name}}.{{item.file_extension}}"></ion-img>
           
           <ion-card-content>
-            {{ item.descripcion }} 
+            <ion-text color="primary">
+              {{ item.descripcion }} 
+            </ion-text>
             <ion-card-title> <p> c/u: {{ item.precio | currency :'USD':'symbol':'2.2-2' }}</p> </ion-card-title>
           </ion-card-content>
 
