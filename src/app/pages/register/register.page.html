@@ -8,24 +8,34 @@
 </ion-header>
 
 <ion-content>
+  
+  <!-- <div class="container">
+    <img width="118 px !important" height="115 px !important" src="/assets/img/logocruzazul_logo.png" alt="">
+  </div> -->
+
   <form #frmRegister="ngForm" (ngSubmit)="login()">
 
     <ion-grid>
+
+      <!-- <ion-row>
+        <ion-col  size-lg="5" size-md="5" size-sm="4" size-xs="1"></ion-col>
+        <ion-col  size-lg="2" size-md="2" size-sm="4" size-xs="10">
+          <ion-img  src="/assets/img/logocruzazul_logo.png"></ion-img>
+        </ion-col>
+        <ion-col  size-lg="5" size-md="5" size-sm="4" size-xs="1"></ion-col>
+      </ion-row> -->
+
       <ion-row>
         <ion-col>
 
             <ion-list>
-              <!-- <img src=""  alt=""> -->
-              <ion-list-header>
-                <ion-col size="4"></ion-col>
-                <ion-col size="4">
-                  <ion-img src="/assets/img/logocruzazul_logo.png"></ion-img>
+              
+              <ion-list-header style="height: 118 px !important">
+                <ion-col  size-lg="5" size-md="5" size-sm="5" size-xs="4"></ion-col>
+                <ion-col size-lg="2" size-md="2" size-sm="2" size-xs="4">
+                  <ion-img  src="/assets/img/logocruzazul_logo.png"></ion-img>
                 </ion-col>
-                <ion-col size="4"></ion-col>
-                
-                <!-- <div id="centrador">
-                  <img id="imagen" src="/assets/img/conejo.png" alt="">
-                </div> -->
+                <ion-col  size-lg="5" size-md="5" size-sm="5" size-xs="4"></ion-col>
               </ion-list-header>
 
               <ion-item>

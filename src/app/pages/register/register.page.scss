@@ -5,12 +5,17 @@
     background-color: red;
 }
 
-#imagen{
-    position: absolute;
-    width: 100px;
+.imagen{
+    position: absolute;;
+    width: 118 px !important;
+    height: 115 px !important;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     margin: auto;
+}
+
+ion-img img{
+    width: 118 px !important;
 }

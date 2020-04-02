@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';  // cominicacion con la
 import { Geolocation } from "@ionic-native/geolocation/ngx";  //add
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';//add
 import { PipesModule } from "./pipes/pipes.module"; //add
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,9 @@ import { PipesModule } from "./pipes/pipes.module"; //add
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    PipesModule //add
+    PipesModule, //add
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     Geolocation, //add

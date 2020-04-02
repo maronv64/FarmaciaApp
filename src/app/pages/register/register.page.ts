@@ -3,7 +3,8 @@ import { Usuario } from 'src/app/interfaces/usuario/usuario';
 import { Form } from '@angular/forms';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController } from '@ionic/angular';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +16,8 @@ export class RegisterPage implements OnInit {
   constructor(private usuarioService:UsuarioService,
               private router:Router,
               private alertController:AlertController,
+              private menuController:MenuController,
+              private appComponent: AppComponent,
               ) { }
   usuario:Usuario={};
   nome_token_user:string='';
@@ -23,6 +26,7 @@ export class RegisterPage implements OnInit {
   @ViewChild('frmRegister',{static:false}) frmRegister:Form;
 
   ngOnInit() {
+    this.menuController.enable(false);
   }
 
   async register(){
@@ -30,9 +34,13 @@ export class RegisterPage implements OnInit {
     this.usuarioService.register(this.usuario)
         .subscribe(item=>{
           localStorage.setItem("miCuenta.nome_token",item.items.nome_token);
+          localStorage.setItem('miCuenta.tipo.cod',item.items.tipo.cod)
           console.log(localStorage.getItem("miCuenta.nome_token"));
+
+          // console.log('cuenta',item);
           
-          this.router.navigateByUrl("/productos");
+          this.appComponent.menu();
+          this.router.navigateByUrl("/home");
         },error=>{
           this.presentAlert();
         });
