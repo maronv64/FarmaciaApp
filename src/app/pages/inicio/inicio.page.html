@@ -26,20 +26,25 @@
       <ion-col size="12"><br><br><br><br></ion-col>
     </ion-row>
     
-    <ion-row>
+    <!-- <ion-row>
       <ion-col size="12">
         <ion-button expand="full" color="cruz-primary" (click)="startApp()">Ingresar</ion-button>
         <ion-text color="cruz-primary"> 
           <a routerLink="/register" > <p>Crea una Cuenta</p> </a>
         </ion-text>
-        
-        
       </ion-col>
-    </ion-row>
+    </ion-row> -->
+
   </ion-grid>
 
 </ion-content>
-<!-- <ion-footer no-border>
-  <ion-toolbar>
+<ion-footer no-border class="ion-no-border">
+  <ion-toolbar >
+    <ion-row no-padding class="ion-no-padding">
+      <ion-col no-margin class="ion-no-margin" size="10" offset="1">
+        <ion-button size="small" shape="round" expand="full" color="cruz-primary" (click)="startApp()">Ingresar</ion-button>
+        <ion-button size="small" shape="round" expand="full" color="cruz-tertiary"  routerLink="/register" routerLinkActive="router-link-active" >Crea una Cuenta</ion-button>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
-</ion-footer> -->
+</ion-footer>

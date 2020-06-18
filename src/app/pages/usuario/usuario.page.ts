@@ -17,18 +17,18 @@ export class UsuarioPage implements OnInit {
   newcolor:string=null;
 
   constructor(private usuarioService:UsuarioService,
-              private alertController: AlertController) { 
+              private alertController: AlertController) {
     this.formUsuario = new FormGroup({
-      
+
       _name       : new FormControl('',Validators.required),
-      _email      : new FormControl('',Validators.required),
-      _cedula     : new FormControl('',Validators.required),
+      _email      : new FormControl({value:'',disabled:true},Validators.required),
+      _cedula     : new FormControl({value:'',disabled:true},Validators.required),
       _celular    : new FormControl('',Validators.required),
       _password   : new FormControl(''),
       _password2  : new FormControl('',Validators.required),
       _nome_token : new FormControl('',Validators.required),
     });
-    
+
   }
 
   formUsuario:FormGroup;
@@ -87,7 +87,7 @@ export class UsuarioPage implements OnInit {
             let usuario:Usuario={
               name       :  this.formUsuario.get('_name').value  ,
               email      : this.formUsuario.get('_email').value ,
-              cedula     : this.formUsuario.get('_cedula').value,  
+              cedula     : this.formUsuario.get('_cedula').value,
               celular    : this.formUsuario.get('_celular').value,
               password2  : this.formUsuario.get('_password2').value,
 
@@ -96,29 +96,29 @@ export class UsuarioPage implements OnInit {
             };
             // this.usuario.name       = this.formUsuario.get('_name').value  ;
             // this.usuario.email      = this.formUsuario.get('_email').value ;
-            // this.usuario.cedula     = this.formUsuario.get('_cedula').value;  
+            // this.usuario.cedula     = this.formUsuario.get('_cedula').value;
             // this.usuario.celular    = this.formUsuario.get('_celular').value;
             // this.usuario.password2  = this.formUsuario.get('_password2').value;
 
             // this.usuario.password   = this.formUsuario.get('_password2').value;
             // this.usuario.nome_token = this.formUsuario.get('_nome_token').value;
-            
+
             this.usuarioService.update(this.nome_token_user,usuario).subscribe(
               item=>{
                 // console.log(item);
                 this.traerUsuario();
                 console.log(usuario);
-                
-                
+
+
               },error=>{
                 console.log(error);
-                
+
               });
           }
         }
       ]
     });
-  
+
     await alert.present();
   }
 
@@ -138,7 +138,7 @@ export class UsuarioPage implements OnInit {
 
   hola(){
     console.log('hola');
-    
+
   }
 
 }

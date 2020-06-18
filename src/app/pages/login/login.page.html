@@ -1,25 +1,45 @@
 <ion-header no-border>
   <ion-toolbar >
     <ion-title></ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="inicio"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <div>
+    <img src="/assets/img/logocruzazul_logo.png" alt="">
+  </div>
 
-  <form #frmLogin="ngForm" >
+  <div>
+    <form #frmLogin="ngForm">
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-item>
+            <ion-label position="floating">email:</ion-label>
+            <ion-input  required name="email" type="email" [(ngModel)]="usuario.email" 
+                        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">password:</ion-label>
+            <ion-input required name="password" type="password" [(ngModel)]="usuario.password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+
+  <!-- <form #frmLogin="ngForm" >
     
-    <ion-grid>
+
+
+    <ion-grid fixed>
       <ion-row>
           <ion-col size="12"><br><br><br><br></ion-col>
       </ion-row>
-      <!-- <ion-row>
-        <ion-col size="12" size-lg="4" size-md="4" size-sm="4" size-xs="4"></ion-col>
-        <ion-col size="12" size-lg="4" size-md="4" size-sm="4" size-xs="4">
-          <ion-img src="/assets/img/logocruzazul_logo.png"></ion-img>
-        </ion-col>
-        <ion-col size="12" size-lg="4" size-md="4" size-sm="4" size-xs="4"></ion-col>
-      </ion-row> -->
 
       <ion-row>
         <ion-col>
@@ -33,7 +53,6 @@
                   </ion-col>
                   <ion-col size="4" size-lg="5" size-md="5" size-sm="5" size-xs="4"></ion-col>
               </ion-list-header>
-              <ion-item lines="none"></ion-item>
 
               <ion-item>
                 <ion-label position="floating">email:</ion-label>
@@ -50,24 +69,20 @@
         </ion-col>
       </ion-row>
 
-      <ion-row>
-        <ion-col size="12">
-          <ion-text color="cruz-primary"> 
-            <a routerLink="/register" > <p>Crea una Cuenta</p> </a>
-          </ion-text>
-        </ion-col>
-      </ion-row>
-
     </ion-grid>
 
-  </form>
+  </form> -->
 </ion-content>
 
-<ion-footer no-border>
-  <ion-toolbar>
-    <!-- <ion-button (click)="schedule()">
-      Click me
-    </ion-button> -->
-    <ion-button color="cruz-primary" (click)="login()" type="submit" expand="full" [disabled]="frmLogin.invalid">Ingresar</ion-button>
+<ion-footer  no-border class="ion-no-border">
+  <ion-toolbar >
+    <!-- <ion-grid > -->
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-button shape="round" size="small" color="cruz-primary" (click)="login()" type="submit" expand="full" [disabled]="frmLogin.invalid">Ingresar</ion-button>
+          <ion-button shape="round" size="small" color="cruz-tertiary" routerLink="/register" type="submit" expand="full">Crea una Cuenta</ion-button>
+        </ion-col>
+      </ion-row>
+    <!-- </ion-grid> -->
   </ion-toolbar>
 </ion-footer>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpParams, HttpClient } from '@angular/common/http';
 import { VentasResult } from 'src/app/interfaces/venta/ventas-result';
 import { Venta } from 'src/app/interfaces/venta/venta';
+import { apiUrl } from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class EntregasService {
 
   constructor(private http:HttpClient) { }
 
-  private apiUrl = "http://127.0.0.1:8000/api/v0/";
+  // private apiUrl = "http://127.0.0.1:8000/api/v0/";
+  private apiUrl = apiUrl;
   private _headers = new HttpHeaders({'Content-Type':'application/json'});
   private _params = new HttpParams();
 

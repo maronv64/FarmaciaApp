@@ -1,0 +1,8 @@
+ 
+{
+    "/api/v0/*":{
+        "target":"https://morning-hollows-19285.herokuapp.com",
+        "secure": false,
+        "changeOrigin":true
+    }
+}

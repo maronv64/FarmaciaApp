@@ -59,16 +59,32 @@ export class CarritoPage implements OnInit,OnDestroy {
           });
   }
 
+  async prueba_filtro(_value:string){
+
+    const loading = await this.loadingController.create({
+      message: 'Espere un monento...',
+      spinner: 'bubbles'
+    });
+    await loading.present();
+
+    this.nome_token_user = localStorage.getItem('miCuenta.nome_token');
+    this.carritoService.filtro(this.nome_token_user,_value)
+        .subscribe(
+          item=>{
+            this.items = item.items;
+            loading.dismiss();
+          },error=>{
+            console.log(error);
+          });
+  }
+
   async eliminar(_item:DetalleVenta){
 
     const alert = await this.alertController.create({
       header: 'Esta seguro?',
       message: 'que desea eliminar',
       buttons: [
-        {
-          text:'Cancelar',
-          role:'cancel',
-          cssClass:'secondary',
+        { text:'Cancelar', role:'cancel', cssClass:'secondary',
           handler: () => {
             console.log('confirmar salida');
           }
@@ -88,19 +104,47 @@ export class CarritoPage implements OnInit,OnDestroy {
                   this.listaCarrito.closeSlidingItems();
                 }
               );
-            
             console.log('eliminacion confirmada');
             //==========================================
           }
         }
       ]
     });
-
-
     await alert.present();
-    // console.log('hola');
-    
-    
+  }
+
+  async prueba_eliminar(_item:DetalleVenta){
+    const alert = await this.alertController.create({
+      header: 'Esta seguro?',
+      message: 'que desea eliminar',
+      buttons: [
+        { text:'Cancelar', role:'cancel', cssClass:'secondary',
+          handler: () => {
+            console.log('confirmar salida');
+          }
+        },
+        {
+          text:'Ok',
+          handler: ()=>{
+            // =================Eliminar========================
+            this.nome_token_user = localStorage.getItem('miCuenta.nome_token');
+            this.carritoService.delete(this.nome_token_user,_item)
+              .subscribe(
+                item=>{
+                  console.log('hola');
+                  this.filtro("");
+                },error=>{
+                  console.log('error: ',error);
+                  this.listaCarrito.closeSlidingItems();
+                }
+              );
+            console.log('eliminacion confirmada');
+            //==========================================
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
   async verModalUbicacion(){
@@ -130,7 +174,7 @@ export class CarritoPage implements OnInit,OnDestroy {
     this.listaCarrito.closeSlidingItems();
     await modal.present();
   }
-
+  
   async escojerUbicacion() {
     const alert = await this.alertController.create({
       header: 'Lugar de Entrega',
@@ -205,6 +249,42 @@ export class CarritoPage implements OnInit,OnDestroy {
                         }
                       );
                       
+              },error=>{
+                console.log('error al generar venta en cero ',error);
+              }
+            );
+    }
+
+  }
+
+  async prueba_generar_pedido(){
+    //obtener el token del usuario logeado.
+    this.nome_token_user = localStorage.getItem('miCuenta.nome_token');
+    let _venta:Venta = {};
+    _venta.nome_token_cliente = this.nome_token_user;
+    _venta.subtotal = '0';
+    _venta.total = '0';
+    // _venta.ubicacion_descripcion="";
+    _venta.ubicacion_latitud=this._ubicacion.latitud;
+    _venta.ubicacion_longitud=this._ubicacion.longitud;
+   
+    if (this._ubicacion!=null) {
+      console.log("entro al if");
+      
+      this.carritoService.generar_venta(this.nome_token_user,_venta)
+            .subscribe(
+              item=>{
+                _venta = item.items;
+                console.log('se genero la venta en cero',_venta.id); 
+                this.carritoService.generar_pedido(this.nome_token_user,item.items) 
+                      .subscribe(
+                        item=>{
+                          console.log('se genero el pedido:',item);
+                          this.filtro('');
+                        },error=>{
+                          console.log('error al generar el pedido: ',error);
+                        }
+                      );
               },error=>{
                 console.log('error al generar venta en cero ',error);
               }

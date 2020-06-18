@@ -86,6 +86,39 @@ export class ProductosItemModalPage implements OnInit {
   }
 
 
-  
+  async prueba_add(){
+    const alert = await this.alertController.create({
+      header: 'Elija la cantidad!',
+      inputs: [
+        { name: '_cantidad', type: 'number', value: 1, min: 1, max: this.item.cantidad, }
+      ],
+      buttons: [
+        { text: 'Cancelar',  role: 'cancel', cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: (input) => {
+            console.log('Confirm Ok');
+            if (input._cantidad!="") {
+              this.newItemCarrito.cantidad   = input._cantidad;
+              this.newItemCarrito.idproducto = this.item.id;
+              const nome_token_user =localStorage.getItem('miCuenta.nome_token');
+              this.carritoService.store(nome_token_user,this.newItemCarrito)
+                  .subscribe( data=>{
+                      this.modalController.dismiss(parseInt(input._cantidad));
+                    }, error=>{
+                      console.log(error);
+                    }
+                  );
+            }
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
 
 }

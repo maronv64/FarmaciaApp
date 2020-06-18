@@ -35,6 +35,11 @@ export class MiscomprasPage implements OnInit {
     });
   }
 
+  ionViewWillEnter(){
+    console.log("en la pagina");
+    // this.filtro("");
+  }
+
   //esta funcion sirve para traer los productos almacenados en la farmacia y almacenarlos en una lista
   async filtro(_value:string){
     this.nome_token_user = localStorage.getItem('miCuenta.nome_token');
@@ -114,5 +119,6 @@ export class MiscomprasPage implements OnInit {
 
 
   }
+
 
 }

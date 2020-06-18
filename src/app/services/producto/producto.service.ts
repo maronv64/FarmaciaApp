@@ -6,6 +6,7 @@ import { Producto } from "src/app/interfaces/producto/producto";
 import { ProductoResult } from "src/app/interfaces/producto/producto-result";
 import { ProductosResult } from "src/app/interfaces/producto/productos-result";
 
+import { apiUrl } from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class ProductoService {
 
   constructor(private http:HttpClient) { }
 
-  private apiUrl = "http://127.0.0.1:8000/api/v0/";
+  // private apiUrl = "http://127.0.0.1:8000/api/v0/";
+  private apiUrl = apiUrl;
   private _headers = new HttpHeaders({'Content-Type':'application/json'});
   private _params = new HttpParams();
   // private httpOptions={headers:this._headers,params:};

@@ -12,9 +12,18 @@
     <ion-title>
       Mis Compras
     </ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="onClick()">
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
   </ion-toolbar>
-  <ion-toolbar>
-    <ion-segment #segmentoCompras (ionChange)="segmentChanged($event)" color="cruz-primary">
+  
+</ion-header>
+
+<ion-header >
+  <ion-toolbar color="cruz-primary">
+    <ion-segment  #segmentoCompras (ionChange)="segmentChanged($event)" >
       <ion-segment-button value="pedidos" class="ion-no-padding">
         <ion-label>Pendientes</ion-label>
       </ion-segment-button>

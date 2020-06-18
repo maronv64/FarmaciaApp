@@ -2,3 +2,9 @@
 //     height: 100px;
 //     width: 100%;
 // }
+ion-col{
+    min-height: 200px;
+    ion-card{
+        height: auto;
+    }
+}

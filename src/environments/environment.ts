@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true
 };
 
 /*
@@ -14,3 +14,7 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+  // export const apiUrl = "http://127.0.0.1:8000/api/v0/";
+  export const apiUrl = "http://www.cruzazulportoviejo.com/api/v0/";
+  // export const apiUrl = "https://fqyyqjrn.lucusvirtual.es/cruzazulportoviejo/public/api/v0/";
+  // export const apiUrl = "/api/v0/";

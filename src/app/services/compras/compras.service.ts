@@ -5,6 +5,7 @@ import { VentaResult } from 'src/app/interfaces/venta/venta-result';
 import { VentasResult } from 'src/app/interfaces/venta/ventas-result';
 import { HttpClient,HttpHeaders,HttpParams } from "@angular/common/http";
 
+import { apiUrl } from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class ComprasService {
 
   constructor(private http:HttpClient) { }
 
-  private apiUrl = "http://127.0.0.1:8000/api/v0/";
+  // private apiUrl = "http://127.0.0.1:8000/api/v0/";
+  private apiUrl = apiUrl;
   private _headers = new HttpHeaders({'Content-Type':'application/json'});
   private _params = new HttpParams();
 

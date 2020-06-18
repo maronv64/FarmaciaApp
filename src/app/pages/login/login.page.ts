@@ -36,6 +36,15 @@ export class LoginPage implements OnInit {
     if (localStorage.getItem('miCuenta.nome_token') != null) {
       this.router.navigateByUrl('/home');
     }
+
+    this.usuarioService.hola().subscribe(data=>{
+      console.log(data);
+      
+    },error=>{
+      console.log("EERRP:",error);
+      
+    });
+    
     // this.schedule();
   }
 
@@ -43,6 +52,15 @@ export class LoginPage implements OnInit {
     const toast = await this.toastController.create({
       message: _mensaje,
       duration: _duracion,
+      buttons: [
+        {
+          text: 'Cerrar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ],
     });
     toast.present();
   }

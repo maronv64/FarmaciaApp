@@ -5,7 +5,7 @@
 </ion-header> -->
 
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="cruz-primary">
     <ion-buttons slot="start">
       <ion-menu-button color="cruz-primary"></ion-menu-button>
     </ion-buttons>
@@ -16,13 +16,16 @@
       <ion-back-button defaultHref="/configuracion"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
- 
-  <ion-item lines="none">
+
+
+
+  <ion-item color="cruz-primary" lines="none">
     <ion-avatar slot="start">
-      <img src="/assets/img/user_0.png" />
+      <img src="/assets/img/person-circle-outline.svg" />
     </ion-avatar>
-    <ion-label>{{formUsuario.get('_name').value}} : {{ formUsuario.get('_email').value}} </ion-label>
-    <!-- <ion-label>:{{usuario.email}}</ion-label> -->
+    <!-- <ion-icon slot="start" name="person-circle-outline"></ion-icon> -->
+    <ion-label>{{formUsuario.get('_name').value}}   </ion-label>
+    <ion-label>{{ formUsuario.get('_email').value}}</ion-label>
   </ion-item>
 
 </ion-header>
@@ -30,7 +33,6 @@
 
 <ion-content>
 
-  
   <ion-grid>
 
     <form [formGroup]="formUsuario" >
@@ -40,11 +42,11 @@
       </ion-item>
       <ion-item>
         <ion-label position="stacked" color="cruz-primary">email:</ion-label>
-        <ion-input formControlName="_email" placeholder="email" type="email" disabled></ion-input>
+        <ion-input formControlName="_email" placeholder="email" type="email" ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked" color="cruz-primary">cédula:</ion-label>
-        <ion-input formControlName="_cedula" placeholder="cédula" type="tel" disabled></ion-input>
+        <ion-input formControlName="_cedula" placeholder="cédula" type="tel" ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked" color="cruz-primary">celular:</ion-label>
@@ -59,10 +61,10 @@
             <ion-icon slot="icon-only" name="eye" [color]="newcolor"></ion-icon>
           </ion-button>
         </ion-buttons>
-        
+
       </ion-item>
     </form>
-    
+
     <!-- <ion-row>
       <ion-col>
         <ion-item>
@@ -89,7 +91,7 @@
               <ion-icon slot="icon-only" name="eye" [color]="newcolor"></ion-icon>
             </ion-button>
           </ion-buttons>
-          
+
         </ion-item>
       </ion-col>
     </ion-row> -->
@@ -100,6 +102,6 @@
 
 <ion-footer no-border>
   <ion-toolbar>
-    <ion-button type="submit" expand="full" (click)="editar()" [disabled]='formUsuario.invalid'>Editar</ion-button>
+    <ion-button  type="submit" expand="full" (click)="editar()" [disabled]='formUsuario.invalid'>Editar</ion-button>
   </ion-toolbar>
 </ion-footer>

@@ -9,24 +9,25 @@
     <ion-buttons slot="start">
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <ion-title>
+    <!-- <ion-title>
       Productos
-    </ion-title>
+    </ion-title> -->
+    <ion-searchbar mode="ios" placeholder="Nombre del producto..." (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar>
     <ion-buttons slot="end">
       <ion-button (click)="verCarrito()"> <!--routerLink="/carrito"-->
         <ion-icon slot="icon-only" name="cart" [color]="colorCarrito"></ion-icon><ion-label [color]="colorCarrito">{{contadorCarrito || '' }}</ion-label>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-  
+
   <!-- <ion-grid fixed>
     <ion-row>
       <ion-col size="12"> -->
-        <ion-searchbar placeholder="Nombre del producto..." (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar>
+        <!-- <ion-searchbar mode="ios" placeholder="Nombre del producto..." (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar> -->
       <!-- </ion-col>
     </ion-row>
   </ion-grid> -->
-  
+
 
 </ion-header>
 
@@ -47,10 +48,10 @@
         <ion-card button (click)="verItem(item)">
           <ion-img *ngIf="item.file_name == null" src="/assets/img/logocruzazul.jpg"></ion-img>
           <ion-img *ngIf="item.file_name != null" src="http://localhost:8000/img/items/{{item.file_name}}.{{item.file_extension}}"></ion-img>
-          
+
           <ion-card-content>
             <ion-text color="primary">
-              {{ item.descripcion }} 
+              {{ item.descripcion }}
             </ion-text>
             <ion-card-title> <p> c/u: {{ item.precio | currency :'USD':'symbol':'2.2-2' }}</p> </ion-card-title>
           </ion-card-content>
@@ -70,11 +71,11 @@
           <ion-img *ngIf="item.file_name != null" src="http://localhost:8000/img/items/{{item.file_name}}.{{item.file_extension}}"></ion-img>
           <ion-card-header>
             <ion-card-subtitle>
-              {{ item.descripcion }} 
+              {{ item.descripcion }}
             </ion-card-subtitle>
 
             <ion-card-title>
-              c/u: $ {{ item.precio }} 
+              c/u: $ {{ item.precio }}
             </ion-card-title>
 
           </ion-card-header>
@@ -84,26 +85,26 @@
               <ion-icon slot="icon-only" name="add"></ion-icon>
             </ion-button>
           </ion-card-content>
-        </ion-card>            
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid> -->
 
-      
-  
+
+
 </ion-content>
 
 
-<!-- 
+<!--
 <ion-content>
   <ion-grid>
     <ion-row>
       <ion-col>
 
-        <ion-list #listaProductos>     
-  
+        <ion-list #listaProductos>
 
-          <ion-item-sliding *ngFor="let item of items">        
+
+          <ion-item-sliding *ngFor="let item of items">
 
             <ion-item >
               <ion-label>
@@ -118,11 +119,11 @@
                 <ion-icon slot="icon-only" name="heart"></ion-icon>
               </ion-item-option>
             </ion-item-options>
-      
+
           </ion-item-sliding>
-      
+
         </ion-list>
-        
+
 
       </ion-col>
     </ion-row>

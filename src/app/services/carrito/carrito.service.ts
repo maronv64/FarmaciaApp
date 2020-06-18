@@ -9,13 +9,15 @@ import { Venta } from 'src/app/interfaces/venta/venta';
 import { VentaResult } from 'src/app/interfaces/venta/venta-result';
 import { VentasResult } from 'src/app/interfaces/venta/ventas-result';
 
+import { apiUrl } from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarritoService {
 
-  private apiUrl = "http://127.0.0.1:8000/api/v0/";
+  // private apiUrl = "http://127.0.0.1:8000/api/v0/";
+  private apiUrl = apiUrl;
   private _headers = new HttpHeaders({'Content-Type':'application/json'});
   // private httpOptions={headers:this._headers};
 

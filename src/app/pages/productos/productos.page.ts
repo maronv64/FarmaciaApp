@@ -110,6 +110,22 @@ export class ProductosPage implements OnInit {
     
   }
 
+  async prueba_verItem(_item:Producto){
+    const modal = await this.modalController.create({
+      component: ProductosItemModalPage,
+      componentProps: {
+        item:_item
+      }
+    });
+    await modal.present();
+    const {data} = await modal.onDidDismiss();
+    if (data!=null) {
+      this.contadorCarrito +=data;
+      console.log(data); 
+      this.colorCarrito = "primary";
+    }
+  }
+
   async verCarrito(){
     this.contadorCarrito = null;
     this.colorCarrito = null;  
